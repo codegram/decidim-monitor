@@ -1,5 +1,7 @@
 # DecidimMonitor
 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/codegram/decidim-monitor)
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
