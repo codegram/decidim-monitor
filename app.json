@@ -22,10 +22,9 @@
       "url": "https://github.com/gjaldon/heroku-buildpack-phoenix-static.git"
     }
   ],
-
   "addons": [
     {
-      "plan": "heroku-postgresql:hobby-dev",
+      "plan": "heroku-postgresql:hobby-dev"
     }
   ]
 }
