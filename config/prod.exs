@@ -17,10 +17,18 @@ config :decidim_monitor, DecidimMonitor.Web.Endpoint,
   on_init: {DecidimMonitor.Web.Endpoint, :load_from_system_env, []},
   url: [scheme: "https", host: "decidim-monitor.herokuapp.com", port: 443],
   force_ssl: [rewrite_on: [:x_forwarded_proto]],
+  secret_key_base: System.get_env("SECRET_KEY_BASE"),
   cache_static_manifest: "priv/static/cache_manifest.json"
 
 # Do not print debug messages in production
 config :logger, level: :info
+
+# Configure your database
+config :decidim_monitor, DecidimMonitor.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  url: System.get_env("DATABASE_URL"),
+  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
+  ssl: true
 
 # ## SSL Support
 #
@@ -62,4 +70,3 @@ config :logger, level: :info
 
 # Finally import the config/prod.secret.exs
 # which should be versioned separately.
-import_config "prod.secret.exs"
