@@ -1,0 +1,31 @@
+{
+  "name": "Decidim Monitor",
+  "description": "A tool to monitor decidim instances.",
+  "repository": "https://github.com/codegram/decidim-monitor",
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "hobby"
+    }
+  },
+  "env": {
+    "SECRET_KEY_BASE": {
+      "description": "A secret key for verifying the integrity of signed cookies.",
+      "generator": "secret"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "https://github.com/HashNuke/heroku-buildpack-elixir.git"
+    },
+    {
+      "url": "https://github.com/gjaldon/heroku-buildpack-phoenix-static.git"
+    }
+  ],
+
+  "addons": [
+    {
+      "plan": "heroku-postgresql:hobby-dev",
+    }
+  ]
+}
