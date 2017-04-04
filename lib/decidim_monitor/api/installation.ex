@@ -1,5 +1,5 @@
-defmodule DecidimMonitor.Instance do
-  @instances %{
+defmodule DecidimMonitor.Api.Installation do
+  @installations %{
     "barcelona" => "https://decidim.barcelona",
     "hospitalet" => "https://www.lhon-participa.cat",
     "terrassa" => "https://decidim-terrassa.herokuapp.com",
@@ -13,12 +13,12 @@ defmodule DecidimMonitor.Instance do
     query: @graphql_query
   }
 
-  def instances do
-    Map.keys @instances
+  def all_installations do
+    Map.keys @installations
   end
 
   def lookup(id) do
-    url = @instances[id]
+    url = @installations[id]
     remote_data = remote_data(id)
 
     %{
@@ -29,7 +29,7 @@ defmodule DecidimMonitor.Instance do
   end
 
   defp remote_data(id) do
-    with %{body: body} <- request(@instances[id]),
+    with %{body: body} <- request(@installations[id]),
          {:ok, body} <- Poison.Parser.parse(body),
          {:ok, data} <- Map.fetch(body, "data"),
          {:ok, decidim} <- Map.fetch(data, "decidim") do

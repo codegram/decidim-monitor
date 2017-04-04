@@ -1,0 +1,5 @@
+cd assets
+npm deploy
+
+cd ..
+mix phx.digest
