@@ -1,9 +1,11 @@
 defmodule DecidimMonitor.Api.Installation do
   @installations %{
-    "barcelona" => "https://decidim.barcelona",
+    "barcelona" => "https://www.decidim.barcelona",
     "hospitalet" => "https://www.lhon-participa.cat",
     "terrassa" => "https://decidim-terrassa.herokuapp.com",
+    "sabadell" => "https://decidim.sabadell.cat",
     "gava" => "https://participa.gavaciutat.cat",
+    "localret" => "https://decidim.localred.codegram.com",
     "staging" => "http://staging.decidim.codegram.com"
   }
 
@@ -35,7 +37,7 @@ defmodule DecidimMonitor.Api.Installation do
          {:ok, decidim} <- Map.fetch(data, "decidim") do
       decidim
     else
-      _ -> %{"version" => "<= 0.0.4"}
+      _ -> %{"version" => "N/A"}
     end
   end
 
