@@ -6,6 +6,7 @@ defmodule DecidimMonitor.Api.Installation do
     "sabadell" => "https://decidim.sabadell.cat",
     "gava" => "https://participa.gavaciutat.cat",
     "localret" => "http://decidim.localret.codegram.com",
+    "vilanova" => "http://participa.vilanova.cat",
     "staging" => "http://staging.decidim.codegram.com"
   }
 
