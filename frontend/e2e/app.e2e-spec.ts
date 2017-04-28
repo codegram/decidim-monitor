@@ -1,10 +1,10 @@
-import { AssetsPage } from './app.po';
+import { DecidimMonitorPage } from './app.po';
 
-describe('assets App', function() {
-  let page: AssetsPage;
+describe('decidim-monitor App', () => {
+  let page: DecidimMonitorPage;
 
   beforeEach(() => {
-    page = new AssetsPage();
+    page = new DecidimMonitorPage();
   });
 
   it('should display message saying app works', () => {

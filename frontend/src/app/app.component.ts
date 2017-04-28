@@ -1,10 +1,35 @@
-import { Component } from '@angular/core';
+import { Apollo } from "apollo-angular";
+import { Component, OnInit } from '@angular/core';
+import gql from "graphql-tag";
+
+const query = gql`
+{
+  installations {
+    url
+    version
+  }
+}
+`
+
+interface QueryResponse{
+  installations:Array<any>;
+  loading:boolean;
+}
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'app works!';
+export class AppComponent implements OnInit {
+    title = 'app works!';
+    installations:Array<{url:string, version:string}>;
+
+    constructor(private apollo: Apollo) {
+    }
+
+    ngOnInit() {
+        this.apollo.watchQuery<QueryResponse>({ query })
+            .subscribe(({ data }) => this.installations = data.installations);
+    }
 }

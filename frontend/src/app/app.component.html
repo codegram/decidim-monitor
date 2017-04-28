@@ -1,3 +1,7 @@
 <h1>
-  {{title}}
+  <ul>
+    <li *ngFor="let installation of installations">
+      <a [href]="installation.url" target="_blank">{{installation.url}}</a> ({{installation.version}})
+    </li>
+  </ul>
 </h1>

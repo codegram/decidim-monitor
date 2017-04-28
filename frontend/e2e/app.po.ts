@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class AssetsPage {
+export class DecidimMonitorPage {
   navigateTo() {
     return browser.get('/');
   }
