@@ -1,5 +1,6 @@
 import { ApolloClient, createNetworkInterface } from 'apollo-client';
 import { ApolloModule } from 'apollo-angular';
+import { MaterialModule } from '@angular/material';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -25,6 +26,7 @@ export function provideClient(): ApolloClient {
   imports: [
     BrowserModule,
     ApolloModule.forRoot(provideClient),
+    MaterialModule,
     FormsModule,
     HttpModule
   ],
