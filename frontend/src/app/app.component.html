@@ -3,18 +3,6 @@
 </md-toolbar>
 
 <div class="installations">
-  <md-card *ngFor="let installation of installations">
-    <md-card-header>
-      <md-card-title>
-        {{installation.url}}
-      </md-card-title>
-      <md-card-subtitle>
-        {{installation.version}}
-      </md-card-subtitle>
-    </md-card-header>
-
-    <md-card-actions>
-      <a md-button [href]="installation.url" target="_blank">Visit</a>
-    </md-card-actions>
-  </md-card>
+  <app-installation *ngFor="let installation of installations" [installation]="installation">
+  </app-installation>
 </div>

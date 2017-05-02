@@ -8,6 +8,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { InstallationComponent } from './installation/installation.component';
+import { VersionerService } from './versioner.service';
 
 const client = new ApolloClient({
   networkInterface: createNetworkInterface({
@@ -21,7 +23,8 @@ export function provideClient(): ApolloClient {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    InstallationComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,7 @@ export function provideClient(): ApolloClient {
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [VersionerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
