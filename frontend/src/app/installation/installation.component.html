@@ -1,14 +1,23 @@
 <md-card>
   <md-card-header>
     <md-card-title>
-      {{installation.url}}
+      <strong>{{installation.name}} </strong>
     </md-card-title>
-    <md-card-subtitle [class.outdated]="outdated$ | async">
-      {{installation.version}}
+    <md-card-subtitle>
+      <a [href]="installation.url" target="_blank">{{installation.url}}</a>
     </md-card-subtitle>
   </md-card-header>
 
+  <md-chip-list>
+    <md-chip [color]="outdatedColor$ | async" selected="true" class="version" >
+      {{installation.version}}
+    </md-chip>
+  </md-chip-list>
+
   <md-card-actions>
-    <a md-button [href]="installation.url" target="_blank">Visit</a>
+    <a md-button [href]="installation.url" target="_blank">
+      <md-icon>explore</md-icon>
+      VISIT WEBSITE
+    </a>
   </md-card-actions>
 </md-card>

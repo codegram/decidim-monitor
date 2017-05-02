@@ -1,11 +1,6 @@
 .installations{
   padding: 1em;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-column-gap: 1em;
-  grid-row-gap: 1em;
-
-  @media (max-width:500px){
-    grid-template-columns: 1fr;
-  }
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr) ) ;
 }

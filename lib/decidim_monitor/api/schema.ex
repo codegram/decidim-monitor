@@ -38,6 +38,9 @@ defmodule DecidimMonitor.Api.Schema do
     @desc "This installation's ID"
     field :id, :id
 
+    @desc "The installation's name"
+    field :name, :string
+
     @desc "The installation's URL"
     field :url, :string
 

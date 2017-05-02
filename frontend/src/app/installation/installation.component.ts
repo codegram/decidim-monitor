@@ -10,10 +10,15 @@ import { Observable } from "rxjs/Observable";
 export class InstallationComponent implements OnInit {
   @Input() installation: any;
   outdated$:Observable<boolean>;
+  outdatedColor$:Observable<string>;
 
   constructor(private versioner:VersionerService) { }
 
   ngOnInit() {
     this.outdated$ = this.versioner.checkOutdated(this.installation.version);
+
+    this.outdatedColor$ = this.outdated$
+      .map(outdated => outdated ? "primary" : "warn")
+      .startWith('');
   }
 }

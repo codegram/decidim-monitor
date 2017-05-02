@@ -1,13 +1,13 @@
 defmodule DecidimMonitor.Api.Installation do
   @installations %{
-    "barcelona" => "https://www.decidim.barcelona",
-    "hospitalet" => "https://www.lhon-participa.cat",
-    "terrassa" => "https://decidim.terrassa.cat",
-    "sabadell" => "https://decidim.sabadell.cat",
-    "gava" => "https://participa.gavaciutat.cat",
-    "localret" => "http://decidim.localret.codegram.com",
-    "vilanova" => "http://participa.vilanova.cat",
-    "staging" => "http://staging.decidim.codegram.com"
+    "barcelona" => %{name: "Decidim Barcelona", url: "https://www.decidim.barcelona" },
+    "hospitalet" => %{ name: "L'H-ON Participa", url: "https://www.lhon-participa.cat" },
+    "terrassa" => %{ name: "Decidim Terrassa", url: "https://decidim.terrassa.cat" },
+    "sabadell" => %{ name: "Decidim Sabadell", url: "https://decidim.sabadell.cat" },
+    "gava" => %{ name: "Decidim Gavà", url: "https://participa.gavaciutat.cat" },
+    "localret" => %{ name: "Decidim Localret", url: "http://decidim.localret.codegram.com" },
+    "vilanova" => %{ name: "Vilanova Participa", url: "http://participa.vilanova.cat" },
+    "staging" => %{ name: "Decidim Staging", url: "http://staging.decidim.codegram.com" }
   }
 
   @graphql_query "{ decidim { version } }"
@@ -21,19 +21,21 @@ defmodule DecidimMonitor.Api.Installation do
   end
 
   def lookup(id) do
-    url = @installations[id]
-    remote_data = remote_data(id)
+    installation = @installations[id]
+    url = installation[:url]
+    remote_data = remote_data(url)
 
     %{
       id: id,
-      url: url,
+      url: installation[:url],
+      name: installation[:name],
       version: remote_data["version"],
       status: remote_data["status"]
     }
   end
 
-  defp remote_data(id) do
-    with %{body: body, status: 200} <- request(@installations[id]),
+  defp remote_data(url) do
+    with %{body: body, status: 200} <- request(url),
          {:ok, body} <- Poison.Parser.parse(body),
          {:ok, data} <- Map.fetch(body, "data"),
          {:ok, decidim} <- Map.fetch(data, "decidim") do

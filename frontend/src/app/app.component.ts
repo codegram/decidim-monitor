@@ -5,6 +5,7 @@ import gql from "graphql-tag";
 const query = gql`
 {
   installations {
+    name
     url
     version
   }
@@ -30,6 +31,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.apollo.watchQuery<QueryResponse>({ query, pollInterval: 10000 })
-      .subscribe(({ data }) => this.installations = data.installations);
+      .map(({ data }) => data.installations)
+      .map(installations => installations.concat().sort((a, b) => a.name < b.name ? -1 : 1))
+      .subscribe(installations => this.installations = installations);
   }
 }
