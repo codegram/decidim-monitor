@@ -2,7 +2,11 @@
   <span>Decidim Monitor</span>
 </md-toolbar>
 
-<div class="installations">
+<div class="loading" *ngIf="loading">
+  <md-progress-spinner mode="indeterminate"></md-progress-spinner>
+</div>
+
+<div class="installations" *ngIf="!loading">
   <app-installation *ngFor="let installation of installations" [installation]="installation">
   </app-installation>
 </div>

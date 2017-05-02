@@ -25,14 +25,16 @@ interface QueryResponse {
 export class AppComponent implements OnInit {
   title = 'app works!';
   installations: Array<{ url: string, version: string }>;
+  loading: Boolean;
 
   constructor(private apollo: Apollo) {
   }
 
   ngOnInit() {
+    this.loading = true;
     this.apollo.watchQuery<QueryResponse>({ query, pollInterval: 10000 })
       .map(({ data }) => data.installations)
       .map(installations => installations.concat().sort((a, b) => a.name < b.name ? -1 : 1))
-      .subscribe(installations => this.installations = installations);
+      .subscribe(installations => { this.installations = installations; this.loading = false });
   }
 }
