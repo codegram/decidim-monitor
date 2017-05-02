@@ -18,7 +18,7 @@ export class InstallationComponent implements OnInit {
     this.outdated$ = this.versioner.checkOutdated(this.installation.version);
 
     this.outdatedColor$ = this.outdated$
-      .map(outdated => outdated ? "primary" : "warn")
+      .map(outdated => outdated ? "warn" : "primary")
       .startWith('');
   }
 }
