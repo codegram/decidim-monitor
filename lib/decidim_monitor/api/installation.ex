@@ -2,7 +2,7 @@ defmodule DecidimMonitor.Api.Installation do
   @installations %{
     "barcelona" => %{name: "Decidim Barcelona", url: "https://www.decidim.barcelona" },
     "hospitalet" => %{ name: "L'H-ON Participa", url: "https://www.lhon-participa.cat" },
-    "terrassa" => %{ name: "Decidim Terrassa", url: "https://decidim.terrassa.cat" },
+    "terrassa" => %{ name: "Decidim Terrassa", url: "https://participa.terrassa.cat" },
     "sabadell" => %{ name: "Decidim Sabadell", url: "https://decidim.sabadell.cat" },
     "gava" => %{ name: "Decidim Gavà", url: "https://participa.gavaciutat.cat" },
     "localret" => %{ name: "Decidim Localret", url: "http://decidim.localret.codegram.com" },
