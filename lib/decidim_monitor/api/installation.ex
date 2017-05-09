@@ -5,6 +5,7 @@ defmodule DecidimMonitor.Api.Installation do
     "terrassa" => %{ name: "Decidim Terrassa", url: "https://participa.terrassa.cat" },
     "sabadell" => %{ name: "Decidim Sabadell", url: "https://decidim.sabadell.cat" },
     "gava" => %{ name: "Decidim Gavà", url: "https://participa.gavaciutat.cat" },
+    "sant_cugat" => %{ name: "Decidim Sant Cugat", url: "https://decidim.santcugat.cat/" },
     "localret" => %{ name: "Decidim Localret", url: "http://decidim.localret.codegram.com" },
     "vilanova" => %{ name: "Vilanova Participa", url: "http://participa.vilanova.cat" },
     "staging" => %{ name: "Decidim Staging", url: "http://staging.decidim.codegram.com" }
