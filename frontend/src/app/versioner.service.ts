@@ -2,6 +2,7 @@ import { Apollo } from "apollo-angular";
 import { Injectable } from '@angular/core';
 import { Observable } from "rxjs/Observable";
 import gql from "graphql-tag";
+import compareVersion from "node-version-compare";
 
 const query = gql`
 {
@@ -26,6 +27,6 @@ export class VersionerService {
   }
 
   checkOutdated(installationVersion:string) {
-    return this.version$.map( version => installationVersion !== version);
+    return this.version$.map( version => compareVersion(installationVersion, version) < 0);
   }
 }

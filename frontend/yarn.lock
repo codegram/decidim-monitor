@@ -1124,6 +1124,10 @@ commoner@~0.10.3:
     q "^1.1.2"
     recast "^0.11.17"
 
+compare-versions@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/compare-versions/-/compare-versions-3.0.1.tgz#e60915b7fb294e29bbb60869188762beeb871443"
+
 component-bind@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/component-bind/-/component-bind-1.0.0.tgz#00c608ab7dcd93897c0009651b1d3a8e1e73bbd1"
@@ -3484,6 +3488,10 @@ node-sass@^4.3.0:
     request "^2.79.0"
     sass-graph "^2.1.1"
     stdout-stream "^1.4.0"
+
+node-version-compare@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/node-version-compare/-/node-version-compare-1.0.1.tgz#d85bfd20f0acade33577f56682c7109c34c550cd"
 
 "nopt@2 || 3":
   version "3.0.6"
