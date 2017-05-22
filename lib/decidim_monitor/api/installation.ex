@@ -9,7 +9,8 @@ defmodule DecidimMonitor.Api.Installation do
     "localret" => %{ name: "Decidim Localret", url: "http://decidim.localret.codegram.com" },
     "vilanova" => %{ name: "Vilanova Participa", url: "http://participa.vilanova.cat" },
     "staging" => %{ name: "Decidim Staging", url: "http://staging.decidim.codegram.com" },
-    "pamplona" => %{ name: "Erabaki Pamplona", url: "https://erabaki.pamplona.es" }
+    "pamplona" => %{ name: "Erabaki Pamplona", url: "https://erabaki.pamplona.es" },
+    "mataro" => %{ name: "Decidim Mataró", url: "https://www.decidimmataro.cat" }
   }
 
   @graphql_query "{ decidim { version } }"
