@@ -11,7 +11,8 @@ defmodule DecidimMonitor.Api.Installation do
     "staging" => %{ name: "Decidim Staging", url: "http://staging.decidim.codegram.com" },
     "pamplona" => %{ name: "Erabaki Pamplona", url: "https://erabaki.pamplona.es" },
     "mataro" => %{ name: "Decidim Mataró", url: "https://www.decidimmataro.cat" },
-    "diba" => %{ name: "Decidim Diputació de Barcelona", url: "http://decidim.diba.cat" }
+    "diba" => %{ name: "Decidim Diputació de Barcelona", url: "http://decidim.diba.cat" },
+    "badalona" => %{ name: "Decidim Badalona", url: "http://decidim.badalona.cat" }
   }
 
   @graphql_query "{ decidim { version } }"
