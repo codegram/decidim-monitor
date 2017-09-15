@@ -12,7 +12,8 @@ defmodule DecidimMonitor.Api.Installation do
     "pamplona" => %{ name: "Erabaki Pamplona", url: "https://erabaki.pamplona.es" },
     "mataro" => %{ name: "Decidim Mataró", url: "https://www.decidimmataro.cat" },
     "diba" => %{ name: "Decidim Diputació de Barcelona", url: "http://decidim.diba.cat" },
-    "badalona" => %{ name: "Decidim Badalona", url: "http://decidim.badalona.cat" }
+    "badalona" => %{ name: "Decidim Badalona", url: "https://decidim.badalona.cat" },
+    "cndp" => %{ name: "Commission Nationale du Débat Public", url: "https://cndp.opensourcepolitics.eu" }
   }
 
   @graphql_query "{ decidim { version } }"
