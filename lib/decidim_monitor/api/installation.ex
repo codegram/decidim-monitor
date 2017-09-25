@@ -1,19 +1,19 @@
 defmodule DecidimMonitor.Api.Installation do
   @installations %{
-    "barcelona" => %{name: "Decidim Barcelona", url: "https://www.decidim.barcelona" },
-    "hospitalet" => %{ name: "L'H-ON Participa", url: "https://www.lhon-participa.cat" },
-    "terrassa" => %{ name: "Decidim Terrassa", url: "https://participa.terrassa.cat" },
-    "sabadell" => %{ name: "Decidim Sabadell", url: "https://decidim.sabadell.cat" },
-    "gava" => %{ name: "Decidim Gavà", url: "https://participa.gavaciutat.cat" },
-    "sant_cugat" => %{ name: "Decidim Sant Cugat", url: "https://decidim.santcugat.cat/" },
-    "localret" => %{ name: "Decidim Localret", url: "http://decidim.localret.codegram.com" },
-    "vilanova" => %{ name: "Vilanova Participa", url: "http://participa.vilanova.cat" },
-    "staging" => %{ name: "Decidim Staging", url: "http://staging.decidim.codegram.com" },
-    "pamplona" => %{ name: "Erabaki Pamplona", url: "https://erabaki.pamplona.es" },
-    "mataro" => %{ name: "Decidim Mataró", url: "https://www.decidimmataro.cat" },
-    "diba" => %{ name: "Decidim Diputació de Barcelona", url: "http://decidim.diba.cat" },
-    "badalona" => %{ name: "Decidim Badalona", url: "https://decidim.badalona.cat" },
-    "cndp" => %{ name: "Commission Nationale du Débat Public", url: "https://cndp.opensourcepolitics.eu" }
+    "barcelona" => %{name: "Decidim Barcelona", url: "https://www.decidim.barcelona", codegram: true },
+    "hospitalet" => %{ name: "L'H-ON Participa", url: "https://www.lhon-participa.cat", codegram: true },
+    "terrassa" => %{ name: "Decidim Terrassa", url: "https://participa.terrassa.cat", codegram: true },
+    "sabadell" => %{ name: "Decidim Sabadell", url: "https://decidim.sabadell.cat", codegram: true },
+    "gava" => %{ name: "Decidim Gavà", url: "https://participa.gavaciutat.cat", codegram: false },
+    "sant_cugat" => %{ name: "Decidim Sant Cugat", url: "https://decidim.santcugat.cat/", codegram: true },
+    "localret" => %{ name: "Decidim Localret", url: "http://decidim.localret.codegram.com", codegram: true },
+    "vilanova" => %{ name: "Vilanova Participa", url: "http://participa.vilanova.cat", codegram: false },
+    "staging" => %{ name: "Decidim Staging", url: "http://staging.decidim.codegram.com", codegram: true },
+    "pamplona" => %{ name: "Erabaki Pamplona", url: "https://erabaki.pamplona.es", codegram: false },
+    "mataro" => %{ name: "Decidim Mataró", url: "https://www.decidimmataro.cat", codegram: false },
+    "diba" => %{ name: "Decidim Diputació de Barcelona", url: "http://decidim.diba.cat", codegram: false },
+    "badalona" => %{ name: "Decidim Badalona", url: "https://decidim.badalona.cat", codegram: true },
+    "cndp" => %{ name: "Commission Nationale du Débat Public", url: "https://cndp.opensourcepolitics.eu", codegram: false }
   }
 
   @graphql_query "{ decidim { version } }"
@@ -36,7 +36,8 @@ defmodule DecidimMonitor.Api.Installation do
       url: installation[:url],
       name: installation[:name],
       version: remote_data["version"],
-      status: remote_data["status"]
+      status: remote_data["status"],
+      codegram: installation[:codegram]
     }
   end
 
