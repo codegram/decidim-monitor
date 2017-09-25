@@ -12,6 +12,7 @@
     <md-chip [color]="outdatedColor$ | async" selected="true" class="version" >
       {{installation.version}}
     </md-chip>
+    <md-chip class="codegram" *ngIf="installation.codegram">Codegram</md-chip>
   </md-chip-list>
 
   <md-card-actions>
