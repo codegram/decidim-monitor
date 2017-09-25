@@ -49,6 +49,9 @@ defmodule DecidimMonitor.Api.Schema do
 
     @desc "This installation's status"
     field :status, :string
+
+    @desc "Whether the installation is maintained by codegram or not"
+    field :codegram, :boolean
   end
 
   @desc "Decidim's version"

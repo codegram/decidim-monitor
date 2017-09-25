@@ -1,6 +1,6 @@
-import { Apollo } from "apollo-angular";
+import { Apollo } from 'apollo-angular';
 import { Component, OnInit } from '@angular/core';
-import gql from "graphql-tag";
+import gql from 'graphql-tag';
 
 const query = gql`
 {
@@ -8,9 +8,10 @@ const query = gql`
     name
     url
     version
+    codegram
   }
 }
-`
+`;
 
 interface QueryResponse {
   installations: Array<any>;
@@ -35,6 +36,6 @@ export class AppComponent implements OnInit {
     this.apollo.watchQuery<QueryResponse>({ query, pollInterval: 10000 })
       .map(({ data }) => data.installations)
       .map(installations => installations.concat().sort((a, b) => a.name < b.name ? -1 : 1))
-      .subscribe(installations => { this.installations = installations; this.loading = false });
+      .subscribe(installations => { this.installations = installations; this.loading = false; });
   }
 }
