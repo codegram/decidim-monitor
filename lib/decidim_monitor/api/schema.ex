@@ -44,6 +44,9 @@ defmodule DecidimMonitor.Api.Schema do
     @desc "The installation's URL"
     field :url, :string
 
+    @desc "The installation's repo URL"
+    field :repo, :string
+
     @desc "Decidim's installed version"
     field :version, :string
 

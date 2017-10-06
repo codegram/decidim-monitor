@@ -7,6 +7,7 @@ const query = gql`
   installations {
     name
     url
+    repo
     version
     codegram
   }
