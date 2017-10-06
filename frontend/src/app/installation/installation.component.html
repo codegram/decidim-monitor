@@ -20,5 +20,9 @@
       <md-icon>explore</md-icon>
       VISIT WEBSITE
     </a>
+    <a md-button [href]="installation.repo" target="_blank" *ngIf="installation.repo">
+      <md-icon>code</md-icon>
+      VISIT REPO
+    </a>
   </md-card-actions>
 </md-card>
