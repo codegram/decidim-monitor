@@ -1,4 +1,6 @@
 defmodule DecidimMonitor.Api.Installation do
+  require Logger
+
   @installations %{
     "barcelona" => %{name: "Decidim Barcelona", url: "https://www.decidim.barcelona", codegram: true, repo: "https://github.com/AjuntamentdeBarcelona/decidim-barcelona/" },
     "hospitalet" => %{ name: "L'H-ON Participa", url: "https://www.lhon-participa.cat", codegram: true, repo: "https://github.com/HospitaletDeLlobregat/decidim-hospitalet/" },
@@ -36,29 +38,24 @@ defmodule DecidimMonitor.Api.Installation do
       url: installation[:url],
       repo: installation[:repo],
       name: installation[:name],
-      version: remote_data["version"],
-      status: remote_data["status"],
+      version: remote_data[:version],
+      status: remote_data[:status],
       codegram: installation[:codegram]
     }
   end
 
   defp remote_data(url) do
-    with %{body: body, status: 200} <- request(url),
-         {:ok, body} <- Poison.Parser.parse(body),
-         {:ok, data} <- Map.fetch(body, "data"),
-         {:ok, decidim} <- Map.fetch(data, "decidim") do
+    with {:ok, %{body: body, status: 200}} <- request(url),
+         {:ok, data} <- Map.fetch(body, :data),
+         {:ok, decidim} <- Map.fetch(data, :decidim) do
       decidim
-      |> Map.merge %{"status" => "online"}
+      |> Map.merge %{status: "online"}
     else
-      _ -> %{"status" => "error", "version" => "N/A"}
+      _ -> %{status: "error", version: "N/A"}
     end
   end
 
   def request(url) do
-    try do
-      Tesla.post("#{url}/api", Poison.encode!(@query), headers: %{"Content-Type" => "application/json"})
-    rescue
-      error in Tesla.Error -> {:error, error}
-    end
+    DecidimClient.post("#{url}/api", @query)
   end
 end

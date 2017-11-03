@@ -38,7 +38,7 @@ defmodule DecidimMonitor.Mixfile do
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
      {:absinthe_plug, "~> 1.3.0-beta.1"},
-     {:tesla, "~> 0.6.0"},
+     {:tesla, "~> 0.9.0"},
      {:poison, "~> 3.0"}]
   end
 

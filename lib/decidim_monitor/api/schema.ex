@@ -1,4 +1,6 @@
 defmodule DecidimMonitor.Api.Schema do
+  require Logger
+
   use Absinthe.Schema
   alias DecidimMonitor.Api.Installation, as: Installation
   alias DecidimMonitor.Api.Decidim, as: Decidim
@@ -28,7 +30,7 @@ defmodule DecidimMonitor.Api.Schema do
 
     field :decidim, type: :decidim do
       resolve fn _, _ ->
-        {:ok, Decidim.data()}
+        Decidim.data()
       end
     end
   end
