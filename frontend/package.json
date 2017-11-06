@@ -28,7 +28,7 @@
     "apollo-client": "^1.1.1",
     "compare-versions": "^3.1.0",
     "core-js": "^2.4.1",
-    "graphql-tag": "^2.0.0",
+    "graphql-tag": "^2.5.0",
     "node-version-compare": "^1.0.1",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.4"
