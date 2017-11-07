@@ -8,7 +8,7 @@
     </mat-card-subtitle>
   </mat-card-header>
 
-  <mat-chip-list>
+  <mat-chip-list selectable="false">
     <mat-chip [color]="outdatedColor$ | async" selected="true" class="version" >
       {{installation.version}}
     </mat-chip>
