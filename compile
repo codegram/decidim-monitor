@@ -1,4 +1,4 @@
-yarn run build:prod
+npm run build:prod
 cd $phoenix_dir
 
 mix "${phoenix_ex}.digest"
