@@ -1,28 +1,28 @@
-<md-card>
-  <md-card-header>
-    <md-card-title>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
       <strong>{{installation.name}} </strong>
-    </md-card-title>
-    <md-card-subtitle>
+    </mat-card-title>
+    <mat-card-subtitle>
       <a [href]="installation.url" target="_blank">{{installation.url}}</a>
-    </md-card-subtitle>
-  </md-card-header>
+    </mat-card-subtitle>
+  </mat-card-header>
 
-  <md-chip-list>
-    <md-chip [color]="outdatedColor$ | async" selected="true" class="version" >
+  <mat-chip-list>
+    <mat-chip [color]="outdatedColor$ | async" selected="true" class="version" >
       {{installation.version}}
-    </md-chip>
-    <md-chip class="codegram" *ngIf="installation.codegram">Codegram</md-chip>
-  </md-chip-list>
+    </mat-chip>
+    <mat-chip class="codegram" *ngIf="installation.codegram">Codegram</mat-chip>
+  </mat-chip-list>
 
-  <md-card-actions>
-    <a md-button [href]="installation.url" target="_blank">
-      <md-icon>explore</md-icon>
+  <mat-card-actions>
+    <a mat-button [href]="installation.url" target="_blank">
+      <mat-icon>explore</mat-icon>
       VISIT WEBSITE
     </a>
-    <a md-button [href]="installation.repo" target="_blank" *ngIf="installation.repo">
-      <md-icon>code</md-icon>
+    <a mat-button [href]="installation.repo" target="_blank" *ngIf="installation.repo">
+      <mat-icon>code</mat-icon>
       VISIT REPO
     </a>
-  </md-card-actions>
-</md-card>
+  </mat-card-actions>
+</mat-card>

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { VersionerService } from "../versioner.service";
 import { Observable } from "rxjs/Observable";
+import { map, startWith } from 'rxjs/operators';
 
 @Component({
   selector: 'app-installation',
@@ -17,8 +18,9 @@ export class InstallationComponent implements OnInit {
   ngOnInit() {
     this.outdated$ = this.versioner.checkOutdated(this.installation.version);
 
-    this.outdatedColor$ = this.outdated$
-      .map(outdated => outdated ? "warn" : "primary")
-      .startWith('');
+    this.outdatedColor$ = this.outdated$.pipe(
+      map(outdated => outdated ? "warn" : "primary"),
+      startWith('')
+    );
   }
 }

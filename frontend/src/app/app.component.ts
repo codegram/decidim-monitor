@@ -1,4 +1,5 @@
 import { Apollo } from 'apollo-angular';
+import { map } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
 import gql from 'graphql-tag';
 
@@ -35,8 +36,9 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.loading = true;
     this.apollo.watchQuery<QueryResponse>({ query, pollInterval: 10000 })
-      .map(({ data }) => data.installations)
-      .map(installations => installations.concat().sort((a, b) => a.name < b.name ? -1 : 1))
-      .subscribe(installations => { this.installations = installations; this.loading = false; });
+      .pipe(
+        map(({ data }) => data.installations),
+        map(installations => installations.concat().sort((a, b) => a.name < b.name ? -1 : 1))
+      ).subscribe(installations => { this.installations = installations; this.loading = false; });
   }
 }

@@ -1,4 +1,5 @@
 import { Apollo } from "apollo-angular";
+import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Observable } from "rxjs/Observable";
 import gql from "graphql-tag";
@@ -23,10 +24,14 @@ export class VersionerService {
 
   constructor(private apollo: Apollo) {
     this.version$ = this.apollo.watchQuery<QueryResponse>({ query, pollInterval: 10000})
-      .map(({ data}) => data.decidim.version );
+      .pipe(
+        map(({ data}) => data.decidim.version )
+      );
   }
 
   checkOutdated(installationVersion:string) {
-    return this.version$.map( version => compareVersion(installationVersion, version) < 0);
+    return this.version$.pipe(
+      map( version => compareVersion(installationVersion, version) < 0)
+    );
   }
 }
