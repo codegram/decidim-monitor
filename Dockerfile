@@ -29,12 +29,17 @@ RUN cd frontend && \
     npm install
 
 USER root
-COPY . /home/myuser
-RUN chown myuser -R /home/myuser
+COPY frontend /home/myuser/frontend
+RUN chown myuser -R /home/myuser/frontend
 USER myuser
 
 RUN cd frontend && \
     npm run build:prod
+
+USER root
+COPY . /home/myuser
+RUN chown myuser -R /home/myuser
+USER myuser
 
 RUN mix compile
 RUN mix phx.digest
