@@ -50,7 +50,7 @@ defmodule DecidimMonitor.Api.Installation do
          {:ok, data} <- Map.fetch(body, :data),
          {:ok, decidim} <- Map.fetch(data, :decidim) do
       decidim
-      |> Map.merge %{status: "online"}
+      |> Map.merge(%{status: "online"})
     else
       _ -> %{status: "error", version: "N/A"}
     end
