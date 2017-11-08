@@ -1,6 +1,6 @@
 # DecidimMonitor
 
-[![CircleCI](https://circleci.com/gh/codegram/decidim-monitor.svg?style=svg)](https://circleci.com/gh/codegram/decidim-monitor)
+[![CircleCI](https://circleci.com/gh/codegram/decidim-monitor.svg?style=svg&circle-token=3eac892150c3797cbcaa0dbb4f0b48af49ace7e5)](https://circleci.com/gh/codegram/decidim-monitor)
 
 To start your Phoenix server:
 
