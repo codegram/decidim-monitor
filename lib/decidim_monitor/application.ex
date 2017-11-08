@@ -9,7 +9,7 @@ defmodule DecidimMonitor.Application do
     # Define workers and child supervisors to be supervised
     children = [
       # Start the Ecto repository
-      supervisor(DecidimMonitor.Repo, []),
+      # supervisor(DecidimMonitor.Repo, []),
       # Start the endpoint when the application starts
       supervisor(DecidimMonitor.Web.Endpoint, []),
       # Start your own worker by calling: DecidimMonitor.Worker.start_link(arg1, arg2, arg3)
