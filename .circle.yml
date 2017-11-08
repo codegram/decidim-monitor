@@ -1,0 +1,16 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: debian:stretch
+    steps:
+      - checkout
+      - run:
+          name: Login to docker
+          command: docker login --username=_ --password=$HEROKU_AUTH_TOKEN registry.heroku.com
+      - run:
+          name: Build image
+          command: docker build -t registry.heroku.com/decidim-monitor/web .
+      - run:
+          name: Push image
+          command: docker push registry.heroku.com/decidim-monitor/web
