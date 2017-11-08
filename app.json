@@ -8,23 +8,12 @@
       "size": "hobby"
     }
   },
-  "env": {
-    "SECRET_KEY_BASE": {
-      "description": "A secret key for verifying the integrity of signed cookies.",
-      "generator": "secret"
+  "environments": {
+    "test": {
+      "scripts": {
+        "test-setup": "docker login --username=_ --password=$HEROKU_AUTH_TOKEN registry.heroku.com",
+        "test": "docker build -t registry.heroku.com/decidim-monitor/web . && docker push registry.heroku.com/decidim-monitor/web"
+      }
     }
-  },
-  "buildpacks": [
-    {
-      "url": "https://github.com/HashNuke/heroku-buildpack-elixir.git"
-    },
-    {
-      "url": "https://github.com/gjaldon/heroku-buildpack-phoenix-static.git"
-    }
-  ],
-  "addons": [
-    {
-      "plan": "heroku-postgresql:hobby-dev"
-    }
-  ]
+  }
 }
