@@ -19,7 +19,7 @@ jobs:
       - run:
           name: Push image
           command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ];
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
               docker push registry.heroku.com/decidim-monitor/web
             fi
 deployment:
