@@ -9,7 +9,7 @@ jobs:
       - setup_remote_docker
       - run:
           name: Pulling docker image
-          command:  docker pull registry.heroku.com/decidim-monitor/web
+          command:  docker pull registry.heroku.com/decidim-monitor/web || true
       - run:
           name: Login to docker
           command: docker login --username=_ --password=$HEROKU_AUTH_TOKEN registry.heroku.com
