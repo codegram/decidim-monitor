@@ -10,18 +10,15 @@ jobs:
       - run:
           name: Login to docker
           command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              docker login --username=_ --password=$HEROKU_AUTH_TOKEN registry.heroku.com
-            fi
+            docker login --username=_ --password=$HEROKU_AUTH_TOKEN registry.heroku.com
       - run:
           name: Pulling docker image
           command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              docker pull registry.heroku.com/decidim-monitor/web || true
-            fi
+            docker pull registry.heroku.com/decidim-monitor/web || true
       - run:
           name: Build image
-          command: docker build -t registry.heroku.com/decidim-monitor/web .
+          command: |
+            docker build -t registry.heroku.com/decidim-monitor/web --cache-from registry.heroku.com/decidim-monitor/web .
       - run:
           name: Push image
           command: |
