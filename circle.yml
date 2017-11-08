@@ -2,6 +2,9 @@ version: 2
 jobs:
   build:
     working_directory: /app
+    branches:
+      only:
+        - master
     docker:
       - image: docker:17.09.0-ce-git
     steps:
@@ -19,3 +22,8 @@ jobs:
       - run:
           name: Push image
           command: docker push registry.heroku.com/decidim-monitor/web
+deployment:
+  production:
+    branch: production
+    commands:
+      - ./deploy_prod.sh
