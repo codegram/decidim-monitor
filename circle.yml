@@ -2,9 +2,6 @@ version: 2
 jobs:
   build:
     working_directory: /app
-    branches:
-      only:
-        - master
     docker:
       - image: docker:17.09.0-ce-git
     steps:
@@ -21,7 +18,10 @@ jobs:
           command: docker build -t registry.heroku.com/decidim-monitor/web .
       - run:
           name: Push image
-          command: docker push registry.heroku.com/decidim-monitor/web
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ];
+              docker push registry.heroku.com/decidim-monitor/web
+            fi
 deployment:
   production:
     branch: production
