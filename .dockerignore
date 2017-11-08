@@ -3,3 +3,4 @@ node_modules
 deps
 _build
 circle.yml
+./*.md
