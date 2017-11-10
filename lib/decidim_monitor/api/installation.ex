@@ -3,6 +3,7 @@ defmodule DecidimMonitor.Api.Installation do
 
   @installations %{
     "barcelona" => %{name: "Decidim Barcelona", url: "https://www.decidim.barcelona", codegram: true, repo: "https://github.com/AjuntamentdeBarcelona/decidim-barcelona/" },
+    "metadecidim" => %{name: "Metadecidim", url: "https://meta.decidim.barcelona", codegram: true, repo: "https://github.com/decidim/metadecidim/" },
     "calafell" => %{name: "Decidim Calafell", url: "https://decidim.calafell.cat", codegram: true, repo: "https://github.com/AjuntamentdeCalafell/decidim-calafell/" },
     "hospitalet" => %{ name: "L'H-ON Participa", url: "https://www.lhon-participa.cat", codegram: true, repo: "https://github.com/HospitaletDeLlobregat/decidim-hospitalet/" },
     "terrassa" => %{ name: "Decidim Terrassa", url: "https://participa.terrassa.cat", codegram: true, repo: "https://github.com/AjuntamentDeTerrassa/decidim-terrassa/" },
