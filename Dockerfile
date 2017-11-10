@@ -1,6 +1,9 @@
-FROM elixir:1.5
+FROM elixir:1.5.2-alpine
+
+ARG mix_env=prod
+
 ENV PORT 4000
-ENV MIX_ENV prod
+ENV MIX_ENV $mix_env
 ENV MIX_ARCHIVES=/.mix
 ENV MIX_HOME=/.mix
 
@@ -9,8 +12,8 @@ WORKDIR /code
 RUN mix local.hex --force \
     && mix local.rebar --force
 
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - \
-    && apt-get install -y nodejs
+RUN apk add --update nodejs nodejs-npm
+RUN apk add --update inotify-tools
 
 COPY mix.exs .
 COPY mix.lock .
@@ -25,15 +28,17 @@ RUN cd frontend && \
     npm install
 
 COPY frontend frontend
-RUN cd frontend && \
-    npm run build:prod
+
+RUN if [ $MIX_ENV == "prod" ]; then cd frontend && npm run build:prod; fi
 
 COPY . .
 
 RUN mix compile
-RUN mix phx.digest
+RUN if [ $MIX_ENV == "prod" ]; then mix phx.digest; fi
 
-RUN useradd -m user
+RUN adduser -D user
+
+RUN if [ $MIX_ENV == "dev" ]; then chmod -R 777 /code/_build /code/priv/static; fi
 USER user
 
 ENTRYPOINT ["mix"]

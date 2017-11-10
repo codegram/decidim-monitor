@@ -3,17 +3,16 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile.dev
+      args:
+        mix_env: dev
     volumes:
-      - .:/home/myuser/code
-      - node_modules:/home/myuser/code/frontend/node_modules
-      - build:/home/myuser/code/_build
-      - dependencies:/home/myuser/code/deps
-    environment:
-      - MIX_ENV=dev
+      - .:/code
+      - node_modules:/code/frontend/node_modules
+      - build:/code/_build
+      - dependencies:/code/deps
     ports:
       - 4000:4000
-    command: mix phx.server
+    command: phx.server
 volumes:
   node_modules:
   build:
