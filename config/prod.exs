@@ -15,7 +15,7 @@ use Mix.Config
 # which you typically run after static files are built.
 config :decidim_monitor, DecidimMonitor.Web.Endpoint,
   load_from_system_env: true,
-  check_origin: false
+  check_origin: false,
   force_ssl: if System.get_env("FORCE_SSL"), do: [rewrite_on: [:x_forwarded_proto]], else: nil,
   secret_key_base: System.get_env("SECRET_KEY_BASE"),
   cache_static_manifest: "priv/static/cache_manifest.json"
