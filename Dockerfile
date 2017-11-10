@@ -1,6 +1,10 @@
 FROM elixir:1.5
 ENV PORT 4000
 ENV MIX_ENV prod
+ENV MIX_ARCHIVES=/.mix
+ENV MIX_HOME=/.mix
+
+WORKDIR /code
 
 RUN mix local.hex --force \
     && mix local.rebar --force
@@ -28,6 +32,9 @@ COPY . .
 
 RUN mix compile
 RUN mix phx.digest
+
+RUN useradd -m user
+USER user
 
 ENTRYPOINT ["mix"]
 CMD ["phx.server"]
