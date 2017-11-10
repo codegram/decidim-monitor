@@ -2,7 +2,7 @@ FROM elixir:1.5.2-alpine
 
 ENV MIX_ENV=prod
 ENV PORT=4000
-EXPOSE $PORT
+EXPOSE 4000
 
 RUN apk add --update nodejs nodejs-npm
 
