@@ -1,48 +1,30 @@
-FROM elixir:1.5.2-alpine
+FROM elixir:1.5
+ENV PORT 4000
+ENV MIX_ENV prod
 
-ENV MIX_ENV=prod
-ENV PORT=4000
-EXPOSE 4000
+RUN mix local.hex --force \
+    && mix local.rebar --force
 
-RUN apk add --update nodejs nodejs-npm
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - \
+    && apt-get install -y nodejs
 
-RUN adduser -D myuser
-
-RUN mkdir /home/myuser/code
-WORKDIR /home/myuser/code
-
-COPY mix.exs mix.exs
-COPY mix.lock mix.lock
-RUN chown myuser -R /home/myuser/code
-
-USER myuser
-RUN mix local.hex --force
-RUN mix local.rebar --force
+COPY mix.exs .
+COPY mix.lock .
 
 RUN mix deps.get
 RUN mix deps.compile
 
-USER root
 COPY frontend/package.json frontend/package.json
 COPY frontend/package-lock.json frontend/package-lock.json
-RUN chown myuser -R .
-USER myuser
 
 RUN cd frontend && \
     npm install
 
-USER root
 COPY frontend frontend
-RUN chown myuser -R frontend
-USER myuser
-
 RUN cd frontend && \
     npm run build:prod
 
-USER root
 COPY . .
-RUN chown myuser -R .
-USER myuser
 
 RUN mix compile
 RUN mix phx.digest
