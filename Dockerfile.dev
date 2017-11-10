@@ -1,10 +1,8 @@
 FROM elixir:1.5.2-alpine
-
-ENV MIX_ENV=prod
-
 RUN apk add --update nodejs nodejs-npm
 
 RUN adduser -D myuser
+ENV MIX_ENV=dev
 
 RUN mkdir /home/myuser/code
 WORKDIR /home/myuser/code
@@ -28,22 +26,3 @@ USER myuser
 
 RUN cd frontend && \
     npm install
-
-USER root
-COPY frontend frontend
-RUN chown myuser -R frontend
-USER myuser
-
-RUN cd frontend && \
-    npm run build:prod
-
-USER root
-COPY . .
-RUN chown myuser -R .
-USER myuser
-
-RUN mix compile
-RUN mix phx.digest
-
-ENTRYPOINT ["mix"]
-CMD ["phx.server"]
