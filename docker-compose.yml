@@ -3,6 +3,7 @@ services:
   app:
     build:
       context: .
+      dockerfile: Dockerfile.dev
       cache_from:
         - decidim/decidim-monitor-dev
       args:

@@ -1,6 +1,0 @@
-#!/bin/sh
-if [ "${DOCKER_REPO}" == "decidim/decidim-monitor-dev" ]; then
-  docker build --build-arg mix_env=dev -t $IMAGE_NAME .
-else
-  docker build --build-arg mix_env=prod -t $IMAGE_NAME .
-fi
