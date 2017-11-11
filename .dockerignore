@@ -1,3 +1,4 @@
+.dockerignore
 Dockerfile
 docker-compose.yml
 node_modules
@@ -10,3 +11,4 @@ db
 .git
 .gitignore
 npm-debug*
+priv/static
