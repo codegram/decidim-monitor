@@ -1,9 +1,10 @@
-version: '3'
+version: '3.3'
 services:
   app:
     build:
       context: .
-      image: decidim/decidim-monitor-dev
+      cache_from:
+        - decidim/decidim-monitor-dev
       args:
         mix_env: dev
     volumes:

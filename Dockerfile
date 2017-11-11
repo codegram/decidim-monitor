@@ -36,10 +36,16 @@ COPY . .
 RUN mix compile
 RUN if [ $MIX_ENV == "prod" ]; then mix phx.digest; fi
 
+RUN apk add bash
+
 RUN adduser -D user
 
-RUN if [ $MIX_ENV == "dev" ]; then chmod -R 777 /code/_build /code/priv/static; fi
+RUN if [ $MIX_ENV == "dev" ]; then \
+      chmod 777 . frontend priv/static priv && \
+      chmod 777 -R priv/static _build \
+    ; fi
+
 USER user
 
-ENTRYPOINT ["mix"]
+ENTRYPOINT ["./docker-erlang-signals.sh"]
 CMD ["phx.server"]
