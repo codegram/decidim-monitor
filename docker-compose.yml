@@ -3,6 +3,7 @@ services:
   app:
     build:
       context: .
+      image: decidim/decidim-monitor-dev
       args:
         mix_env: dev
     volumes:
