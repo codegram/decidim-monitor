@@ -34,9 +34,7 @@ RUN mix compile
 
 RUN adduser -D user
 
-RUN chmod 777 . frontend priv/static priv && \
-    chmod 777 -R priv/static _build
-
+RUN chmod 777 . frontend priv
 USER user
 
 ENTRYPOINT ["./docker-erlang-signals.sh"]
