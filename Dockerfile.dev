@@ -12,7 +12,7 @@ WORKDIR /code
 RUN mix local.hex --force \
     && mix local.rebar --force
 
-RUN apk add bash
+RUN apk add --update bash
 RUN apk add --update nodejs nodejs-npm
 RUN apk add --update inotify-tools
 
