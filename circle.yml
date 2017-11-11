@@ -11,25 +11,17 @@ jobs:
           name: Login to docker
           command: |
             docker login --username=_ --password=$HEROKU_AUTH_TOKEN registry.heroku.com
-            docker login --username=$DOCKER_USER --password=$DOCKER_PASS
       - run:
           name: Pulling docker image
           command: |
             docker pull decidim/decidim-monitor || true
-            docker pull registry.heroku.com/decidim-monitor/web || true
       - run:
           name: Build image
           command: |
-            docker build -t registry.heroku.com/decidim-monitor/web -t decidim/decidim-monitor:latest --cache-from registry.heroku.com/decidim-monitor/web .
+            docker build -t registry.heroku.com/decidim-monitor/web --cache-from decidim/decidim-monitor:latest .
       - run:
           name: Push deployment image
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               docker push registry.heroku.com/decidim-monitor/web
-            fi
-      - run:
-          name: Push docker hub image
-          command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              docker push decidim/decidim-monitor:latest
             fi
