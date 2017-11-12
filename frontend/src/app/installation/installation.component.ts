@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { VersionerService } from "../versioner.service";
-import { Observable } from "rxjs/Observable";
+import { Observable } from 'rxjs/Observable';
 import { map, startWith } from 'rxjs/operators';
+import compareVersion from 'node-version-compare';
 
 @Component({
   selector: 'app-installation',
@@ -10,17 +10,11 @@ import { map, startWith } from 'rxjs/operators';
 })
 export class InstallationComponent implements OnInit {
   @Input() installation: any;
-  outdated$:Observable<boolean>;
-  outdatedColor$:Observable<string>;
-
-  constructor(private versioner:VersionerService) { }
+  outdated: boolean;
+  outdatedColor: string;
 
   ngOnInit() {
-    this.outdated$ = this.versioner.checkOutdated(this.installation.version);
-
-    this.outdatedColor$ = this.outdated$.pipe(
-      map(outdated => outdated ? "warn" : "primary"),
-      startWith('')
-    );
+    this.outdated = (compareVersion(this.installation.version, this.installation.currentVersion) < 0);
+    this.outdatedColor = this.outdated ? 'warn' : 'primary';
   }
 }

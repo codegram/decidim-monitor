@@ -9,7 +9,7 @@
   </mat-card-header>
 
   <mat-chip-list selectable="false">
-    <mat-chip [color]="outdatedColor$ | async" selected="true" class="version" >
+    <mat-chip [color]="outdatedColor" selected="true" class="version" >
       {{installation.version}}
     </mat-chip>
     <mat-chip class="codegram" *ngIf="installation.codegram">Codegram</mat-chip>

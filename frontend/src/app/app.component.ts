@@ -12,12 +12,17 @@ const query = gql`
     version
     codegram
   }
+
+  decidim {
+    version
+  }
 }
 `;
 
 interface QueryResponse {
   installations: Array<any>;
   loading: boolean;
+  decidim: { version:string }
 }
 
 @Component({
@@ -27,7 +32,7 @@ interface QueryResponse {
 })
 export class AppComponent implements OnInit {
   title = 'app works!';
-  installations: Array<{ url: string, version: string }>;
+  installations: Array<{ url: string, version: string, currentVersion: string }>;
   loading: Boolean;
 
   constructor(private apollo: Apollo) {
@@ -37,8 +42,14 @@ export class AppComponent implements OnInit {
     this.loading = true;
     this.apollo.watchQuery<QueryResponse>({ query, pollInterval: 10000 })
       .pipe(
-        map(({ data }) => data.installations),
-        map(installations => installations.concat().sort((a, b) => a.name < b.name ? -1 : 1))
-      ).subscribe(installations => { this.installations = installations; this.loading = false; });
+        map(({ data }) => data)
+      ).subscribe(data => {
+        this.installations = data.installations.map((installation) => ({
+          ...installation,
+          currentVersion: data.decidim.version
+        })).sort((a, b) => a.name < b.name ? -1 : 1);
+
+        this.loading = false;
+      });
   }
 }

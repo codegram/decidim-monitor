@@ -16,7 +16,6 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { InstallationComponent } from './installation/installation.component';
-import { VersionerService } from './versioner.service';
 
 const client = new ApolloClient({
   networkInterface: createNetworkInterface({
@@ -37,8 +36,8 @@ export function provideClient(): ApolloClient {
     BrowserModule,
     BrowserAnimationsModule,
     ApolloModule.forRoot(provideClient),
-    MatCardModule,
     MatToolbarModule,
+    MatCardModule,
     MatProgressSpinnerModule,
     MatChipsModule,
     MatButtonModule,
@@ -46,7 +45,6 @@ export function provideClient(): ApolloClient {
     FormsModule,
     HttpModule
   ],
-  providers: [VersionerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
