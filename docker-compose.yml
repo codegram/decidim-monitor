@@ -4,8 +4,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.dev
-      cache_from:
-        - decidim/decidim-monitor-dev
     volumes:
       - .:/code
       - node_modules:/code/frontend/node_modules

@@ -29,10 +29,10 @@ RUN cd frontend && \
 COPY . .
 
 RUN mix compile
+RUN chmod 777 . frontend priv
+RUN chmod 777 -R _build
 
 RUN adduser -D user
-
-RUN chmod 777 . frontend priv
 USER user
 
 ENTRYPOINT ["./docker-erlang-signals.sh"]
