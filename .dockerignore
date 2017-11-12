@@ -1,14 +1,12 @@
-.dockerignore
 Dockerfile
 docker-compose.yml
-node_modules
+frontend/node_modules
 deps
 _build
 circle.yml
 *.md
 **.ez
-db
 .git
 .gitignore
-npm-debug*
+frontend/npm-debug*
 priv/static

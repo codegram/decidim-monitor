@@ -1,9 +1,7 @@
 FROM elixir:1.5.2-alpine
 
-ARG mix_env=dev
-
 ENV PORT 4000
-ENV MIX_ENV $mix_env
+ENV MIX_ENV dev
 ENV MIX_ARCHIVES=/.mix
 ENV MIX_HOME=/.mix
 
