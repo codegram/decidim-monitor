@@ -28,7 +28,7 @@ export class InstallationComponent implements OnInit {
       if(semver.satisfies(`${major}.${minor}.${patch}`, `=${currentMajor}.${currentMinor}.${currentPatch}`)) {
         this.color = "primary";
       } else if(semver.satisfies(`${major}.${minor}.${patch}`, `>=${currentMajor}.${currentMinor}.x`)) {
-        this.color = "accent";
+        this.color = null;
       } else {
         this.color = "warn";
       }
