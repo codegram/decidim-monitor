@@ -13,27 +13,3 @@ RUN mix local.hex --force \
 RUN apk add --update bash
 RUN apk add --update nodejs nodejs-npm
 RUN apk add --update inotify-tools
-
-COPY mix.exs .
-COPY mix.lock .
-
-RUN mix deps.get
-RUN mix deps.compile
-
-COPY frontend/package.json frontend/package.json
-COPY frontend/package-lock.json frontend/package-lock.json
-
-RUN cd frontend && \
-    npm install
-
-COPY . .
-
-RUN mix compile
-RUN chmod 777 . frontend priv
-RUN chmod 777 -R _build
-
-RUN adduser -D user
-USER user
-
-ENTRYPOINT ["./docker-erlang-signals.sh"]
-CMD ["phx.server"]
