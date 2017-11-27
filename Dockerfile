@@ -1,4 +1,4 @@
-FROM elixir:1.5.2-alpine
+FROM marcelocg/phoenix
 
 ENV PORT 4000
 ENV MIX_ENV prod
@@ -9,10 +9,6 @@ WORKDIR /code
 
 RUN mix local.hex --force \
     && mix local.rebar --force
-
-RUN apk add --update bash
-RUN apk add --update nodejs nodejs-npm
-RUN apk add --update inotify-tools
 
 COPY mix.exs .
 COPY mix.lock .
@@ -35,8 +31,7 @@ COPY . .
 RUN mix compile
 RUN mix phx.digest
 
-RUN adduser -D user
-
+RUN useradd -ms /bin/bash user
 USER user
 
 ENTRYPOINT ["./docker-erlang-signals.sh"]

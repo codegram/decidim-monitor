@@ -1,15 +1,12 @@
-FROM elixir:1.5.2-alpine
+FROM marcelocg/phoenix
 
 ENV PORT 4000
 ENV MIX_ENV dev
 ENV MIX_ARCHIVES=/.mix
 ENV MIX_HOME=/.mix
 
-WORKDIR /code
-
 RUN mix local.hex --force \
     && mix local.rebar --force
 
-RUN apk add --update bash
-RUN apk add --update nodejs nodejs-npm
-RUN apk add --update inotify-tools
+WORKDIR /code
+
