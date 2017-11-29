@@ -4,16 +4,11 @@ use Mix.Config
 # you can enable the server option below.
 config :decidim_monitor, DecidimMonitor.Web.Endpoint,
   http: [port: 4001],
-  server: false
+  server: true
 
 # Print only warnings and errors during test
 config :logger, level: :warn
 
-# Configure your database
-config :decidim_monitor, DecidimMonitor.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "decidim_monitor_test",
-  hostname: "localhost",
-  pool: Ecto.Adapters.SQL.Sandbox
+config :wallaby,
+  driver: Wallaby.Experimental.Chrome,
+  screenshot_on_failure: true

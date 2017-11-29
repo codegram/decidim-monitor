@@ -28,8 +28,8 @@ defmodule DecidimMonitor.Api.Installation do
     query: @graphql_query
   }
 
-  def all_installations do
-    Map.keys @installations
+  def all do
+    @installations
   end
 
   def lookup(id) do
