@@ -3,6 +3,9 @@ FROM $FROM
 
 USER root
 
+RUN apt-get update \
+  && apt-get install -y unzip
+
 ENV CHROMEDRIVER_RELEASE=2.33
 ENV GOOGLE_CHROME_VERSION=62.0.3202.94-1
 

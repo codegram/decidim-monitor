@@ -25,7 +25,7 @@ jobs:
           name: Run tests
           command: |
             docker build -t decidim-monitor:ci -f Dockerfile.ci --build-arg FROM=decidim/decidim-monitor:latest .
-            docker run decidim-monitor:ci
+            docker run -it decidim-monitor:ci
       - run:
           name: Push deployment image
           command: |
