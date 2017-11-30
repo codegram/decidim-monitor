@@ -1,4 +1,4 @@
-ARG FROM decidim/decidim-monitor:latest
+ARG FROM=decidim/decidim-monitor:latest
 FROM $FROM
 
 USER root
