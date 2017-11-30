@@ -24,7 +24,7 @@ jobs:
       - run:
           name: Run tests
           command: |
-            docker run decidim/decidim-monitor:latest --entrypoint mix test
+            docker run --entrypoint mix decidim/decidim-monitor:latest test
       - run:
           name: Push deployment image
           command: |
