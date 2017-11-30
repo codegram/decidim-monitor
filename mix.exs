@@ -31,13 +31,13 @@ defmodule DecidimMonitor.Mixfile do
   defp deps do
     [{:phoenix, "~> 1.3.0"},
      {:phoenix_pubsub, "~> 1.0"},
-     {:phoenix_ecto, "~> 3.2"},
      {:phoenix_html, "~> 2.6"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
      {:absinthe_plug, "~> 1.3.1"},
      {:tesla, "~> 0.9.0"},
+     {:wallaby, "~> 0.19.2", only: :test},
      {:poison, "~> 3.0"}]
   end
 
@@ -48,8 +48,5 @@ defmodule DecidimMonitor.Mixfile do
   #
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
-    ["ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
-     "ecto.reset": ["ecto.drop", "ecto.setup"],
-     "test": ["ecto.create --quiet", "ecto.migrate", "test"]]
   end
 end

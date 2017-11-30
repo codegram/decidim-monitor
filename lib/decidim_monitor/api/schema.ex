@@ -20,7 +20,7 @@ defmodule DecidimMonitor.Api.Schema do
     @desc "Get all the installations"
     field :installations, type: list_of(:installation) do
       resolve fn _, _ ->
-        result = Installation.all_installations()
+        result = Map.keys(Installation.all)
         |> Enum.map(&(Task.async(fn -> Installation.lookup(&1) end)))
         |> Enum.map(&Task.await/1)
 

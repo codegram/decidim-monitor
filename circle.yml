@@ -22,6 +22,11 @@ jobs:
           command: |
             docker build -t registry.heroku.com/decidim-monitor/web -t decidim/decidim-monitor:latest --cache-from registry.heroku.com/decidim-monitor/web .
       - run:
+          name: Run tests
+          command: |
+            docker build -t decidim-monitor:ci -f Dockerfile.ci --build-arg FROM=decidim/decidim-monitor:latest .
+            docker run -it decidim-monitor:ci
+      - run:
           name: Push deployment image
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then

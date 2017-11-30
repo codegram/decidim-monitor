@@ -24,14 +24,4 @@ defmodule DecidimMonitor.Web.ChannelCase do
       @endpoint DecidimMonitor.Web.Endpoint
     end
   end
-
-
-  setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(DecidimMonitor.Repo)
-    unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(DecidimMonitor.Repo, {:shared, self()})
-    end
-    :ok
-  end
-
 end
