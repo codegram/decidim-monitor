@@ -11,7 +11,8 @@ services:
       - dependencies:/code/deps
     ports:
       - 4000:4000
-    command: mix phx.server
+    entrypoint: mix
+    command: phx.server
 volumes:
   node_modules:
   build:

@@ -24,7 +24,8 @@ jobs:
       - run:
           name: Run tests
           command: |
-            docker run --entrypoint mix decidim/decidim-monitor:latest test
+            docker build -t decidim-monitor:ci -f Dockerfile.ci --build-arg FROM=decidim/decidim-monitor:latest .
+            docker run decidim-monitor:ci
       - run:
           name: Push deployment image
           command: |
