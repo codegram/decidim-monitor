@@ -19,7 +19,8 @@ defmodule DecidimMonitor.Api.Installation do
     "diba" => %{ name: "Decidim Diputació de Barcelona", url: "http://decidim.diba.cat", codegram: false, repo: "https://github.com/diputacioBCN/decidim-diba/" },
     "badalona" => %{ name: "Decidim Badalona", url: "https://decidim.badalona.cat", codegram: true, repo: "https://github.com/AjuntamentdeBadalona/decidim-badalona/" },
     "cndp" => %{ name: "Commission Nationale du Débat Public", url: "https://cndp.opensourcepolitics.eu", codegram: false, repo: "" },
-    "reus" => %{ name: "Decidim Reus", url: "https://participa.reus.cat", codegram: false, repo: "https://github.com/AjuntamentdeReus/decidim" }
+    "reus" => %{ name: "Decidim Reus", url: "https://participa.reus.cat", codegram: false, repo: "https://github.com/AjuntamentdeReus/decidim" },
+    "helsinki" => %{ name: "Osallistu Helsingin kehittämiseen", url: "https://osallistu.hel.fi/", codegram: false, repo: "" }
   }
 
   @graphql_query "{ decidim { version } }"
