@@ -21,7 +21,8 @@ defmodule DecidimMonitor.Api.Installation do
     "cndp" => %{ name: "Commission Nationale du Débat Public", url: "https://cndp.opensourcepolitics.eu", codegram: false, repo: "" },
     "reus" => %{ name: "Decidim Reus", url: "https://participa.reus.cat", codegram: false, repo: "https://github.com/AjuntamentdeReus/decidim" },
     "helsinki" => %{ name: "Osallistu Helsingin kehittämiseen", url: "https://osallistu.hel.fi/", codegram: false, repo: "" },
-    "esparreguera" => %{ name: "Decideix Esparreguera", url: "http://decideix.esparreguera.cat/", codegram: false, repo: "" }
+    "esparreguera" => %{ name: "Decideix Esparreguera", url: "http://decideix.esparreguera.cat/", codegram: false, repo: "" },
+    "fundaction" => %{ name: "FundAction", url: "https://assembly.fundaction.eu/", codegram: false, repo: "https://github.com/ElectricThings/fund_action" }  
   }
 
   @graphql_query "{ decidim { version } }"
