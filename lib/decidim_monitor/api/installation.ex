@@ -22,7 +22,8 @@ defmodule DecidimMonitor.Api.Installation do
     "reus" => %{ name: "Decidim Reus", url: "https://participa.reus.cat", codegram: false, repo: "https://github.com/AjuntamentdeReus/decidim" },
     "helsinki" => %{ name: "Osallistu Helsingin kehittämiseen", url: "https://osallistu.hel.fi/", codegram: false, repo: "" },
     "esparreguera" => %{ name: "Decideix Esparreguera", url: "http://decideix.esparreguera.cat/", codegram: false, repo: "" },
-    "fundaction" => %{ name: "FundAction", url: "https://assembly.fundaction.eu/", codegram: false, repo: "https://github.com/ElectricThings/fund_action" }  
+    "fundaction" => %{ name: "FundAction", url: "https://assembly.fundaction.eu/", codegram: false, repo: "https://github.com/ElectricThings/fund_action" },
+    "brocard" => %{ name: "Blandine Brocard", url: "https://participez.blandinebrocard.com/", codegram: false, repo: "" }
   }
 
   @graphql_query "{ decidim { version } }"
