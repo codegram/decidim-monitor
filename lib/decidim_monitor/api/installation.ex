@@ -24,7 +24,8 @@ defmodule DecidimMonitor.Api.Installation do
     "esparreguera" => %{ name: "Decideix Esparreguera", url: "http://decideix.esparreguera.cat/", codegram: false, repo: "" },
     "fundaction" => %{ name: "FundAction", url: "https://assembly.fundaction.eu/", codegram: false, repo: "https://github.com/ElectricThings/fund_action" },
     "brocard" => %{ name: "Blandine Brocard", url: "https://participez.blandinebrocard.com/", codegram: false, repo: "" },
-    "nouvelle-aquitaine" => %{ name: "Nouvelle-Aquitaine", url: "https://concertations.nouvelle-aquitaine.fr/", codegram: false, repo: "" }
+    "nouvelle-aquitaine" => %{ name: "Nouvelle-Aquitaine", url: "https://concertations.nouvelle-aquitaine.fr/", codegram: false, repo: "" },
+    "castillalamancha" => %{ name: "Participa Castilla La Mancha", url: "https://participa.castillalamancha.es", codegram: false, repo: "https://participa.castillalamancha.es/calendar" }
   }
 
   @graphql_query "{ decidim { version } }"
