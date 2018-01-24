@@ -7,9 +7,9 @@ defmodule DecidimMonitor.Api.Installation do
     "decidim-barcelona-organizations" => %{name: "Decidim Barcelona Organizations", url: "https://decidim.coterrats.com", codegram: true, repo: "https://github.com/AjuntamentdeBarcelona/decidim-barcelona-organizations/" },
     "calafell" => %{name: "Decidim Calafell", url: "https://decidim.calafell.cat", codegram: true, repo: "https://github.com/AjuntamentdeCalafell/decidim-calafell/" },
     "hospitalet" => %{ name: "L'H-ON Participa", url: "https://www.lhon-participa.cat", codegram: true, repo: "https://github.com/HospitaletDeLlobregat/decidim-hospitalet/" },
-    "terrassa" => %{ name: "Decidim Terrassa", url: "https://participa.terrassa.cat", codegram: true, repo: "https://github.com/AjuntamentDeTerrassa/decidim-terrassa/" },
+    "terrassa" => %{ name: "Participa Terrassa", url: "https://participa.terrassa.cat", codegram: true, repo: "https://github.com/AjuntamentDeTerrassa/decidim-terrassa/" },
     "sabadell" => %{ name: "Decidim Sabadell", url: "https://decidim.sabadell.cat", codegram: true, repo: "https://github.com/AjuntamentDeSabadell/decidim-sabadell/" },
-    "gava" => %{ name: "Decidim Gavà", url: "https://participa.gavaciutat.cat", codegram: false, repo: "https://github.com/AjuntamentDeGava/decidim-gava/" },
+    "gava" => %{ name: "Participa Gavà", url: "https://participa.gavaciutat.cat", codegram: false, repo: "https://github.com/AjuntamentDeGava/decidim-gava/" },
     "sant_cugat" => %{ name: "Decidim Sant Cugat", url: "https://decidim.santcugat.cat/", codegram: true, repo: "https://github.com/AjuntamentdeSantCugat/decidim-sant_cugat/" },
     "localret" => %{ name: "Decidim Localret", url: "http://decidim.localret.codegram.com", codegram: true, repo: "https://github.com/codegram/decidim-localret/" },
     "vilanova" => %{ name: "Vilanova Participa", url: "http://participa.vilanova.cat", codegram: false, repo: "https://github.com/vilanovailageltru/decidim-vilanova/" },
@@ -19,12 +19,13 @@ defmodule DecidimMonitor.Api.Installation do
     "diba" => %{ name: "Decidim Diputació de Barcelona", url: "http://decidim.diba.cat", codegram: false, repo: "https://github.com/diputacioBCN/decidim-diba/" },
     "badalona" => %{ name: "Decidim Badalona", url: "https://decidim.badalona.cat", codegram: true, repo: "https://github.com/AjuntamentdeBadalona/decidim-badalona/" },
     "cndp" => %{ name: "Commission Nationale du Débat Public", url: "https://cndp.opensourcepolitics.eu", codegram: false, repo: "https://github.com/OpenSourcePolitics/decidim-cndp" },
-    "reus" => %{ name: "Decidim Reus", url: "https://participa.reus.cat", codegram: false, repo: "https://github.com/AjuntamentdeReus/decidim" },
+    "reus" => %{ name: "Participa Reus", url: "https://participa.reus.cat", codegram: false, repo: "https://github.com/AjuntamentdeReus/decidim" },
     "helsinki" => %{ name: "Osallistu Helsingin kehittämiseen", url: "https://osallistu.hel.fi/", codegram: false, repo: "" },
     "esparreguera" => %{ name: "Decideix Esparreguera", url: "http://decideix.esparreguera.cat/", codegram: false, repo: "" },
     "fundaction" => %{ name: "FundAction", url: "https://assembly.fundaction.eu/", codegram: false, repo: "https://github.com/ElectricThings/fund_action" },
     "brocard" => %{ name: "Blandine Brocard", url: "https://participez.blandinebrocard.com/", codegram: false, repo: "" },
-    "nouvelle-aquitaine" => %{ name: "Nouvelle-Aquitaine", url: "https://concertations.nouvelle-aquitaine.fr/", codegram: false, repo: "" }
+    "nouvelle-aquitaine" => %{ name: "Nouvelle-Aquitaine", url: "https://concertations.nouvelle-aquitaine.fr/", codegram: false, repo: "" },
+    "castilla-la-mancha" => %{ name: "Participa Castilla La Mancha", url: "https://participa.castillalamancha.es/", codegram: false, repo: "https://github.com/castilla-lamancha/participa-castillalamancha" }
   }
 
   @graphql_query "{ decidim { version } }"
