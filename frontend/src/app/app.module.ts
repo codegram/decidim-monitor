@@ -1,8 +1,7 @@
 import { AppSearch } from "./app-search/app-search.component";
 import { AppLoading } from "./app-loading/app-loading.component";
 import { InstallationList } from "./installation-list/installation-list.component";
-import { ApolloClient, createNetworkInterface } from "apollo-client";
-import { ApolloModule } from "apollo-angular";
+import { ApolloModule, Apollo } from "apollo-angular";
 
 import { MatCardModule } from "@angular/material/card";
 import { MatToolbarModule } from "@angular/material/toolbar";
@@ -21,16 +20,9 @@ import { InstallationComponent } from "./app-installation/app-installation.compo
 import { AppComponent } from "./app.component";
 import { AppHome } from "./app-home/app-home.component";
 import { AppRoutingModule } from "./app-routing.module";
-
-const client = new ApolloClient({
-  networkInterface: createNetworkInterface({
-    uri: "/api"
-  })
-});
-
-export function provideClient(): ApolloClient {
-  return client;
-}
+import { HttpClientModule } from "@angular/common/http";
+import { HttpLinkModule, HttpLink } from "apollo-angular-link-http";
+import { InMemoryCache } from "apollo-cache-inmemory";
 
 @NgModule({
   declarations: [
@@ -45,7 +37,9 @@ export function provideClient(): ApolloClient {
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
-    ApolloModule.forRoot(provideClient),
+    ApolloModule,
+    HttpLinkModule,
+    HttpClientModule,
     MatToolbarModule,
     MatCardModule,
     MatProgressSpinnerModule,
@@ -57,4 +51,15 @@ export function provideClient(): ApolloClient {
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+  constructor(apollo: Apollo, httpLink: HttpLink) {
+    apollo.create({
+      // By default, this client will send queries to the
+      // `/graphql` endpoint on the same host
+      link: httpLink.create({
+        uri: "/api"
+      }),
+      cache: new InMemoryCache()
+    });
+  }
+}

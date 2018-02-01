@@ -1,13 +1,13 @@
 import { Apollo } from "apollo-angular";
 import { map, switchMap, tap } from "rxjs/operators";
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ChangeDetectorRef } from "@angular/core";
 import gql from "graphql-tag";
 import { ActivatedRoute } from "@angular/router";
 import { Observable } from "rxjs/Observable";
 
 const query = gql`
-  {
-    installations {
+  query SearchInstallations($version: String) {
+    installations(version: $version) {
       name
       url
       repo
@@ -42,7 +42,11 @@ export class AppSearch implements OnInit {
   >;
   loading: Boolean;
 
-  constructor(private apollo: Apollo, private route: ActivatedRoute) {}
+  constructor(
+    private apollo: Apollo,
+    private route: ActivatedRoute,
+    private changeDetector: ChangeDetectorRef
+  ) {}
 
   ngOnInit() {
     this.loading = true;
@@ -50,11 +54,14 @@ export class AppSearch implements OnInit {
     this.installations$ = this.route.queryParams.pipe(
       switchMap(({ version }) =>
         this.apollo
-          .watchQuery<QueryResponse>({ query, pollInterval: 10000 })
-          .pipe(
+          .watchQuery<QueryResponse>({
+            query,
+            variables: { version },
+            pollInterval: 10000
+          })
+          .valueChanges.pipe(
             map(({ data }) =>
               data.installations
-                .filter(installation => installation.version === version)
                 .map(installation => ({
                   ...installation,
                   currentVersion: data.decidim.version
@@ -63,7 +70,10 @@ export class AppSearch implements OnInit {
             )
           )
       ),
-      tap(() => (this.loading = false))
+      tap(() => {
+        this.loading = false;
+        this.changeDetector.detectChanges();
+      })
     );
   }
 }

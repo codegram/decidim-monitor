@@ -10,8 +10,8 @@ services:
       - node_modules:/code/frontend/node_modules:delegated
     ports:
       - 4000:4000
-    entrypoint: mix
-    command: phx.server
+    entrypoint: ""
+    command: mix phx.server
     environment: 
       MIX_ENV: dev
 volumes:

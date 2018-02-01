@@ -43,7 +43,7 @@ export class AppHome implements OnInit {
     this.loading = true;
     this.apollo
       .watchQuery<QueryResponse>({ query, pollInterval: 10000 })
-      .pipe(map(({ data }) => data))
+      .valueChanges.pipe(map(({ data }) => data))
       .subscribe(data => {
         this.installations = data.installations
           .map(installation => ({
