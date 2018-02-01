@@ -57,9 +57,9 @@ defmodule DecidimMonitor.Api.Installation do
   defp remote_data(url) do
     with {:ok, %{body: body, status: 200}} <- request(url),
          {:ok, data} <- Map.fetch(body, :data),
-         {:ok, decidim} <- Map.fetch(data, :decidim) do
-      decidim
-      |> Map.merge(%{status: "online"})
+         {:ok, decidim} <- Map.fetch(data, :decidim),
+         %{"version" => version} <- decidim do
+      %{status: "online", version: version}
     else
       _ -> %{status: "error", version: "N/A"}
     end

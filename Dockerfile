@@ -1,4 +1,4 @@
-FROM marcelocg/phoenix
+FROM marcelocg/phoenix@sha256:151d6a019e94da27a2b1a4d451a122fe48bc7d58c2df38876a62d0e8e0c13fc0
 
 ENV PORT 4000
 ENV MIX_ENV prod
