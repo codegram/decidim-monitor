@@ -29,15 +29,15 @@ defmodule DecidimMonitor.Mixfile do
   #
   # Type `mix help deps` for examples and options.
   defp deps do
-    [{:phoenix, "~> 1.3.0"},
+    [{:phoenix, "~> 1.3"},
      {:phoenix_pubsub, "~> 1.0"},
      {:phoenix_html, "~> 2.6"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
-     {:absinthe_plug, "~> 1.3.1"},
-     {:tesla, "~> 0.9.0"},
-     {:wallaby, "~> 0.19.2", only: :test},
+     {:absinthe_plug, "~> 1.3"},
+     {:tesla, "~> 0.9"},
+     {:wallaby, "~> 0.19", only: :test},
      {:poison, "~> 3.0"}]
   end
 
