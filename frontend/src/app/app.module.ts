@@ -1,3 +1,6 @@
+import { AppSearch } from "./app-search/app-search.component";
+import { AppLoading } from "./app-loading/app-loading.component";
+import { InstallationList } from "./installation-list/installation-list.component";
 import { ApolloClient, createNetworkInterface } from "apollo-client";
 import { ApolloModule } from "apollo-angular";
 
@@ -14,8 +17,10 @@ import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
 
-import { AppComponent } from "./app.component";
 import { InstallationComponent } from "./app-installation/app-installation.component";
+import { AppComponent } from "./app.component";
+import { AppHome } from "./app-home/app-home.component";
+import { AppRoutingModule } from "./app-routing.module";
 
 const client = new ApolloClient({
   networkInterface: createNetworkInterface({
@@ -28,8 +33,16 @@ export function provideClient(): ApolloClient {
 }
 
 @NgModule({
-  declarations: [AppComponent, InstallationComponent],
+  declarations: [
+    AppComponent,
+    AppHome,
+    InstallationComponent,
+    InstallationList,
+    AppLoading,
+    AppSearch
+  ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
     ApolloModule.forRoot(provideClient),
