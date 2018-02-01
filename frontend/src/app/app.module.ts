@@ -1,5 +1,7 @@
-import { ApolloClient, createNetworkInterface } from "apollo-client";
-import { ApolloModule } from "apollo-angular";
+import { AppSearch } from "./app-search/app-search.component";
+import { AppLoading } from "./app-loading/app-loading.component";
+import { InstallationList } from "./installation-list/installation-list.component";
+import { ApolloModule, Apollo } from "apollo-angular";
 
 import { MatCardModule } from "@angular/material/card";
 import { MatToolbarModule } from "@angular/material/toolbar";
@@ -14,25 +16,30 @@ import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
 
-import { AppComponent } from "./app.component";
 import { InstallationComponent } from "./app-installation/app-installation.component";
-
-const client = new ApolloClient({
-  networkInterface: createNetworkInterface({
-    uri: "/api"
-  })
-});
-
-export function provideClient(): ApolloClient {
-  return client;
-}
+import { AppComponent } from "./app.component";
+import { AppHome } from "./app-home/app-home.component";
+import { AppRoutingModule } from "./app-routing.module";
+import { HttpClientModule } from "@angular/common/http";
+import { HttpLinkModule, HttpLink } from "apollo-angular-link-http";
+import { InMemoryCache } from "apollo-cache-inmemory";
 
 @NgModule({
-  declarations: [AppComponent, InstallationComponent],
+  declarations: [
+    AppComponent,
+    AppHome,
+    InstallationComponent,
+    InstallationList,
+    AppLoading,
+    AppSearch
+  ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
-    ApolloModule.forRoot(provideClient),
+    ApolloModule,
+    HttpLinkModule,
+    HttpClientModule,
     MatToolbarModule,
     MatCardModule,
     MatProgressSpinnerModule,
@@ -44,4 +51,15 @@ export function provideClient(): ApolloClient {
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+  constructor(apollo: Apollo, httpLink: HttpLink) {
+    apollo.create({
+      // By default, this client will send queries to the
+      // `/graphql` endpoint on the same host
+      link: httpLink.create({
+        uri: "/api"
+      }),
+      cache: new InMemoryCache()
+    });
+  }
+}

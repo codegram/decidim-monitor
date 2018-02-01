@@ -13,13 +13,23 @@ defmodule DecidimMonitor.Web.Router do
     plug(:accepts, ["json"])
   end
 
+  scope "/api" do
+    pipe_through(:api)
+
+    forward("/", Absinthe.Plug, schema: DecidimMonitor.Api.Schema)
+  end
+
+  forward(
+    "/graphiql",
+    Absinthe.Plug.GraphiQL,
+    schema: DecidimMonitor.Api.Schema,
+    interface: :simple
+  )
+
   scope "/", DecidimMonitor.Web do
     # Use the default browser stack
     pipe_through(:browser)
 
-    get("/", PageController, :index)
+    get("/*path", PageController, :index)
   end
-
-  forward("/api", Absinthe.Plug, schema: DecidimMonitor.Api.Schema)
-  forward("/graphiql", Absinthe.Plug.GraphiQL, schema: DecidimMonitor.Api.Schema)
 end

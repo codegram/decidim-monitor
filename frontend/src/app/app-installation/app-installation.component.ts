@@ -6,7 +6,7 @@ import semver from "semver";
 @Component({
   selector: "app-installation",
   templateUrl: "./app-installation.component.html",
-  styleUrls: []
+  styleUrls: ["./app-installation.component.scss"]
 })
 export class InstallationComponent implements OnInit {
   @Input() installation: any;

@@ -1,12 +1,5 @@
 <mat-toolbar color="primary">
-  <span>Decidim Monitor</span>
+  <a routerLink="/">Decidim Monitor</a>
 </mat-toolbar>
 
-<div class="loading" *ngIf="loading">
-  <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
-</div>
-
-<div class="installations" *ngIf="!loading">
-  <app-installation *ngFor="let installation of installations" [installation]="installation">
-  </app-installation>
-</div>
+<router-outlet></router-outlet>
