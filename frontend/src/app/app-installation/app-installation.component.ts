@@ -1,11 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { map, startWith } from 'rxjs/operators';
-import semver from 'semver';
+import { Component, OnInit, Input } from "@angular/core";
+import { Observable } from "rxjs/Observable";
+import { map, startWith } from "rxjs/operators";
+import semver from "semver";
 
 @Component({
-  selector: 'app-installation',
-  templateUrl: './installation.component.html',
+  selector: "app-installation",
+  templateUrl: "./app-installation.component.html",
   styleUrls: []
 })
 export class InstallationComponent implements OnInit {
@@ -25,14 +25,24 @@ export class InstallationComponent implements OnInit {
       let currentMinor = semver.minor(currentVersion);
       let currentPatch = semver.patch(currentVersion);
 
-      if(semver.satisfies(`${major}.${minor}.${patch}`, `=${currentMajor}.${currentMinor}.${currentPatch}`)) {
+      if (
+        semver.satisfies(
+          `${major}.${minor}.${patch}`,
+          `=${currentMajor}.${currentMinor}.${currentPatch}`
+        )
+      ) {
         this.color = "primary";
-      } else if(semver.satisfies(`${major}.${minor}.${patch}`, `>=${currentMajor}.${currentMinor}.x`)) {
+      } else if (
+        semver.satisfies(
+          `${major}.${minor}.${patch}`,
+          `>=${currentMajor}.${currentMinor}.x`
+        )
+      ) {
         this.color = null;
       } else {
         this.color = "warn";
       }
-    } catch(e) {
+    } catch (e) {
       this.color = "warn";
     }
   }

@@ -5,14 +5,13 @@ services:
       context: .
       dockerfile: Dockerfile.dev
     volumes:
-      - .:/code
-      - node_modules:/code/frontend/node_modules
-      - build:/code/_build
-      - dependencies:/code/deps
+      - .:/code:delegated
+      - node_modules:/code/frontend/node_modules:delegated
+      - build:/code/_build:delegated
+      - dependencies:/code/deps:delegated
     ports:
       - 4000:4000
-    entrypoint: mix
-    command: phx.server
+    command: mix phx.server
 volumes:
   node_modules:
   build:
