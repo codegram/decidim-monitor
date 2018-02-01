@@ -1,11 +1,20 @@
-FROM marcelocg/phoenix@sha256:151d6a019e94da27a2b1a4d451a122fe48bc7d58c2df38876a62d0e8e0c13fc0
+FROM elixir:1.6.1
+
+ARG MIX_ENV=prod
 
 ENV PORT 4000
-ENV MIX_ENV prod
+ENV MIX_ENV $MIX_ENV
 ENV MIX_ARCHIVES=/.mix
 ENV MIX_HOME=/.mix
 
 WORKDIR /code
+
+RUN apt-get update && apt-get upgrade -y 
+RUN apt-get install -y bash inotify-tools
+RUN apt-get install -y nodejs
+
+RUN curl -sL https://deb.nodesource.com/setup_9.x | bash - && \
+    apt-get install nodejs
 
 RUN mix local.hex --force \
     && mix local.rebar --force
@@ -24,15 +33,12 @@ RUN cd frontend && \
 
 COPY frontend frontend
 
-RUN cd frontend && npm run build:prod
+RUN if [ "${MIX_ENV}" = "prod" ]; then cd frontend && npm run build:prod; fi
 
 COPY . .
 
 RUN mix compile
-RUN mix phx.digest
-
-RUN useradd -ms /bin/bash user
-USER user
+RUN if [ "${MIX_ENV}" = "prod" ]; then mix phx.digest; fi
 
 ENTRYPOINT ["./docker-erlang-signals.sh"]
 CMD ["phx.server"]

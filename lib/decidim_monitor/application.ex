@@ -11,7 +11,7 @@ defmodule DecidimMonitor.Application do
       # Start the Ecto repository
       # supervisor(DecidimMonitor.Repo, []),
       # Start the endpoint when the application starts
-      supervisor(DecidimMonitor.Web.Endpoint, []),
+      supervisor(DecidimMonitor.Web.Endpoint, [])
       # Start your own worker by calling: DecidimMonitor.Worker.start_link(arg1, arg2, arg3)
       # worker(DecidimMonitor.Worker, [arg1, arg2, arg3]),
     ]

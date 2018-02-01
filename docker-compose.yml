@@ -3,7 +3,8 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile.dev
+      args:
+        - MIX_ENV=dev
     volumes:
       - .:/code:delegated
       - node_modules:/code/frontend/node_modules:delegated
@@ -11,7 +12,10 @@ services:
       - dependencies:/code/deps:delegated
     ports:
       - 4000:4000
-    command: mix phx.server
+    entrypoint: mix
+    command: phx.server
+    environment: 
+      MIX_ENV: dev
 volumes:
   node_modules:
   build:
