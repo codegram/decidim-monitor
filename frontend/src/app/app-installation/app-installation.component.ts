@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Observable } from "rxjs/Observable";
 import { map, startWith } from "rxjs/operators";
-import semver from "semver";
+const semver = require("semver");
 
 @Component({
   selector: "app-installation",
@@ -31,14 +31,14 @@ export class InstallationComponent implements OnInit {
           `=${currentMajor}.${currentMinor}.${currentPatch}`
         )
       ) {
-        this.color = "primary";
+        this.color = "accent";
       } else if (
         semver.satisfies(
           `${major}.${minor}.${patch}`,
           `>=${currentMajor}.${currentMinor}.x`
         )
       ) {
-        this.color = null;
+        this.color = "none";
       } else {
         this.color = "warn";
       }

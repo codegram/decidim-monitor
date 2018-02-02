@@ -6,5 +6,5 @@ import { Component, Input } from "@angular/core";
   selector: "app-loading"
 })
 export class AppLoading {
-  @Input() loading: Boolean;
+  @Input() loading: Boolean = true;
 }

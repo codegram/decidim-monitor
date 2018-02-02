@@ -1,2 +1,7 @@
-<app-loading [loading]="loading"></app-loading>
-<installation-list *ngIf="!loading" [installations]="installations"></installation-list>
+<ng-container *ngIf="installations$ | async as installations; else loading">
+  <installation-list [installations]="installations"></installation-list>
+</ng-container>
+
+<ng-template #loading>
+  <app-loading></app-loading>
+</ng-template>

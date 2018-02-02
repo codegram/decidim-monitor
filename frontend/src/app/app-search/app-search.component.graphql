@@ -1,0 +1,13 @@
+query SearchComponent($version: String) {
+  installations(version: $version) {
+    name
+    url
+    repo
+    version
+    codegram
+  }
+
+  decidim {
+    version
+  }
+}

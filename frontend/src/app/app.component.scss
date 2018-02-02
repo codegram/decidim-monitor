@@ -1,4 +1,17 @@
-mat-toolbar a{
-  text-decoration: none;
-  color: white;
+mat-toolbar{
+  img, a{
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  img{
+    height: 35px;
+    margin-right: 0.2em;
+  }
+
+  a {
+    text-decoration: none;
+    color: rgb(109, 108, 108);
+    font-weight: 300;
+  }
 }
