@@ -1,0 +1,13 @@
+query AppHome {
+  installations {
+    name
+    url
+    repo
+    version
+    codegram
+  }
+
+  decidim {
+    version
+  }
+}

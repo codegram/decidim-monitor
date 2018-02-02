@@ -4,22 +4,9 @@ import { Component, OnInit, ChangeDetectorRef } from "@angular/core";
 import gql from "graphql-tag";
 import { ActivatedRoute } from "@angular/router";
 import { Observable } from "rxjs/Observable";
+import { DocumentNode } from "graphql";
 
-const query = gql`
-  query SearchInstallations($version: String) {
-    installations(version: $version) {
-      name
-      url
-      repo
-      version
-      codegram
-    }
-
-    decidim {
-      version
-    }
-  }
-`;
+const query: DocumentNode = require("graphql-tag/loader!./app-search.component.graphql");
 
 interface QueryResponse {
   installations: Array<any>;
@@ -41,6 +28,7 @@ export class AppSearch implements OnInit {
     }>
   >;
   loading: Boolean;
+  version$: Observable<String>;
 
   constructor(
     private apollo: Apollo,
@@ -49,7 +37,7 @@ export class AppSearch implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.loading = true;
+    this.version$ = this.route.queryParams.pipe(map(params => params.version));
 
     this.installations$ = this.route.queryParams.pipe(
       switchMap(({ version }) =>
@@ -69,11 +57,7 @@ export class AppSearch implements OnInit {
                 .sort((a, b) => (a.name < b.name ? -1 : 1))
             )
           )
-      ),
-      tap(() => {
-        this.loading = false;
-        this.changeDetector.detectChanges();
-      })
+      )
     );
   }
 }

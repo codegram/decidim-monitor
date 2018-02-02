@@ -10,7 +10,8 @@
     "watch": "ng build --watch --aot",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "download_schema": "apollo-codegen introspect-schema http://localhost:4000/api --output schema.json"
   },
   "private": true,
   "dependencies": {
@@ -29,6 +30,7 @@
     "apollo-angular-link-http": "^1.0.2-beta.0",
     "apollo-cache-inmemory": "^1.1.5",
     "apollo-client": "^2.2.1",
+    "apollo-codegen": "^0.18.3",
     "core-js": "^2.5.3",
     "graphql": "^0.12.3",
     "graphql-tag": "^2.6.1",
