@@ -10,7 +10,7 @@ const semver = require("semver");
 })
 export class InstallationComponent implements OnInit {
   @Input() installation: any;
-  color: string;
+  status: string;
 
   ngOnInit() {
     let version = this.installation.version;
@@ -31,19 +31,19 @@ export class InstallationComponent implements OnInit {
           `=${currentMajor}.${currentMinor}.${currentPatch}`
         )
       ) {
-        this.color = "accent";
+        this.status = "up-to-date";
       } else if (
         semver.satisfies(
           `${major}.${minor}.${patch}`,
           `>=${currentMajor}.${currentMinor}.x`
         )
       ) {
-        this.color = "none";
+        this.status = "same-minor";
       } else {
-        this.color = "warn";
+        this.status = "outdated";
       }
     } catch (e) {
-      this.color = "warn";
+      this.status = "outdated";
     }
   }
 }

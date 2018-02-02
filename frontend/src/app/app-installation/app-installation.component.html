@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card [ngClass]="status">
   <mat-card-header>
     <mat-card-title>
       <strong>{{installation.name}} </strong>
@@ -9,7 +9,7 @@
   </mat-card-header>
 
   <mat-chip-list selectable="false">
-    <mat-chip [color]="color" selected="true">
+    <mat-chip color="none" selected="true" ngClass="status">
       <a routerLink="/search" [queryParams]="{ version: installation.version }">{{installation.version}}</a>
     </mat-chip>
     <mat-chip *ngIf="installation.codegram">Codegram</mat-chip>

@@ -1,4 +1,16 @@
-mat-chip a{
-  text-decoration: none;
-  color: white;
+mat-chip {
+  a{
+    text-decoration: none;
+    color: white;
+  }
+}
+
+mat-card.up-to-date mat-chip.status{
+  background-color: rgb(69, 196, 69);
+}
+mat-card.same-minor mat-chip.status{
+  background-color: rgb(231, 196, 41);
+}
+mat-card.outdated mat-chip.status{
+  background-color: rgb(230, 56, 56);
 }
