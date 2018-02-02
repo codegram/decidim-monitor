@@ -15,6 +15,6 @@ defmodule DecidimMonitor.InstallationsListTest do
   test "the page has the right title", %{session: session} do
     session
     |> visit("/")
-    |> assert_has(css("mat-toolbar", text: "Decidim Monitor"))
+    |> assert_has(css("mat-toolbar", text: "decidim monitor"))
   end
 end
