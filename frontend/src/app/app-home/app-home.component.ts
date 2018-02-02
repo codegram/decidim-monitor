@@ -4,6 +4,7 @@ import { Component, OnInit } from "@angular/core";
 import gql from "graphql-tag";
 import { DocumentNode } from "graphql";
 import { Observable } from "rxjs/Observable";
+import { AppHomeQuery } from "../graphql-types";
 
 const query: DocumentNode = require("graphql-tag/loader!./app-home.component.graphql");
 
@@ -30,7 +31,7 @@ export class AppHome implements OnInit {
 
   ngOnInit() {
     this.installations$ = this.apollo
-      .watchQuery<QueryResponse>({ query, pollInterval: 10000 })
+      .watchQuery<AppHomeQuery>({ query, pollInterval: 10000 })
       .valueChanges.pipe(
         map(({ data }) =>
           data.installations

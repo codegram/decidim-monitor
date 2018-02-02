@@ -1,4 +1,10 @@
 <div class="installations">
-  <app-installation *ngFor="let installation of installations" [installation]="installation">
-  </app-installation>
+  <ng-container *ngIf="installations$ | async as installations; else loading">
+    <app-installation *ngFor="let installation of installations" [installation]="installation">
+    </app-installation>
+  </ng-container>
 </div>
+
+<ng-template #loading>
+  <app-loading></app-loading>
+</ng-template>

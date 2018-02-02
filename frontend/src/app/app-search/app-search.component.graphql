@@ -1,4 +1,4 @@
-query SearchComponent($version: String) {
+query AppSearch($version: String) {
   installations(version: $version) {
     name
     url

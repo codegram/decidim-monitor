@@ -11,7 +11,11 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "download_schema": "apollo-codegen introspect-schema http://localhost:4000/api --output schema.json"
+    "download_schema":
+      "apollo-codegen introspect-schema http://localhost:4000/api --output src/schema.json",
+    "pregenerate_types": "npm run download_schema",
+    "generate_types":
+      "apollo-codegen generate **/*.graphql --schema src/schema.json --target typescript --output src/app/graphql-types.ts"
   },
   "private": true,
   "dependencies": {

@@ -5,6 +5,7 @@ import gql from "graphql-tag";
 import { ActivatedRoute } from "@angular/router";
 import { Observable } from "rxjs/Observable";
 import { DocumentNode } from "graphql";
+import { AppSearchQuery } from "../graphql-types";
 
 const query: DocumentNode = require("graphql-tag/loader!./app-search.component.graphql");
 
@@ -42,7 +43,7 @@ export class AppSearch implements OnInit {
     this.installations$ = this.route.queryParams.pipe(
       switchMap(({ version }) =>
         this.apollo
-          .watchQuery<QueryResponse>({
+          .watchQuery<AppSearchQuery>({
             query,
             variables: { version },
             pollInterval: 10000

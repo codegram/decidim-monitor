@@ -1,4 +1,5 @@
 import { Component, Input } from "@angular/core";
+import { Observable } from "rxjs/Observable";
 
 @Component({
   templateUrl: "./installation-list.component.html",
@@ -6,5 +7,5 @@ import { Component, Input } from "@angular/core";
   styleUrls: ["./installation-list.component.scss"]
 })
 export class InstallationList {
-  @Input() installations: any[];
+  @Input() installations$: Observable<any>[];
 }
