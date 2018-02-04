@@ -1,7 +1,8 @@
-<ng-container *ngIf="version$ | async">
-  <div class="search-bar">
-    Searching for {{version$ | async}}
-  </div>
-</ng-container>
+<div class="search-bar">
+  <ng-container *ngIf="searchParams$ | async as searchParams">
+    <strong>Searching for</strong>
+    {{ searchParams.join(",")}}
+  </ng-container>
+</div>
 
 <installation-list [installations$]="installations$"></installation-list>

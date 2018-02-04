@@ -29,7 +29,7 @@ export class AppSearch implements OnInit {
     }>
   >;
   loading: Boolean;
-  version$: Observable<String>;
+  searchParams$: Observable<Object>;
 
   constructor(
     private apollo: Apollo,
@@ -38,7 +38,16 @@ export class AppSearch implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.version$ = this.route.queryParams.pipe(map(params => params.version));
+    this.searchParams$ = this.route.queryParams.pipe(
+      map(({ version, tags }) => ({ version, tags })),
+      map(params =>
+        Object.keys(params).reduce(
+          (state: String[], key: string) =>
+            params[key] ? [...state, `${key}: ${params[key]}`] : state,
+          []
+        )
+      )
+    );
 
     this.installations$ = this.route.queryParams.pipe(
       switchMap(({ version, tags }) =>
