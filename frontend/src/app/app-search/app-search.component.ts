@@ -7,7 +7,7 @@ import { Observable } from "rxjs/Observable";
 import { DocumentNode } from "graphql";
 import { AppSearchQuery } from "../graphql-types";
 
-const query: DocumentNode = require("graphql-tag/loader!./app-search.component.graphql");
+const query = require("./app-search.component.graphql");
 
 interface QueryResponse {
   installations: Array<any>;

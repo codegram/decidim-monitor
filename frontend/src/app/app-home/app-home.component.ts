@@ -5,8 +5,9 @@ import gql from "graphql-tag";
 import { DocumentNode } from "graphql";
 import { Observable } from "rxjs/Observable";
 import { AppHomeQuery } from "../graphql-types";
+import { InstallationComponent } from "../app-installation/app-installation.component";
 
-const query: DocumentNode = require("graphql-tag/loader!./app-home.component.graphql");
+const query = require("./app-home.component.graphql");
 
 interface QueryResponse {
   installations: Array<any>;

@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Observable } from "rxjs/Observable";
 import { map, startWith } from "rxjs/operators";
+import { DocumentNode } from "graphql";
+
 const semver = require("semver");
 
 @Component({
