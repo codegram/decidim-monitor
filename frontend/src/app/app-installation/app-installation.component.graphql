@@ -1,0 +1,7 @@
+fragment AppInstallation on Installation {
+  name
+  url
+  repo
+  version
+  tags
+}

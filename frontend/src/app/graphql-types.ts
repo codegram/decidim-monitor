@@ -45,3 +45,16 @@ export interface AppSearchQuery {
     version: string | null,
   } | null,
 };
+
+export interface AppInstallationFragment {
+  // The installation's name
+  name: string | null,
+  // The installation's URL
+  url: string | null,
+  // The installation's repo URL
+  repo: string | null,
+  // Decidim's installed version
+  version: string | null,
+  // A list of tags associated with this installation
+  tags: Array< string | null > | null,
+};
