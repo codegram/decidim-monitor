@@ -5,43 +5,43 @@ defmodule DecidimMonitor.Api.Installation do
     "barcelona" => %{
       name: "Decidim Barcelona",
       url: "https://www.decidim.barcelona",
-      codegram: true,
+      tags: ["codegram"],
       repo: "https://github.com/AjuntamentdeBarcelona/decidim-barcelona/"
     },
     "metadecidim" => %{
       name: "Metadecidim",
       url: "https://meta.decidim.barcelona",
-      codegram: true,
+      tags: ["codegram"],
       repo: "https://github.com/decidim/metadecidim/"
     },
     "decidim-barcelona-organizations" => %{
       name: "Decidim Barcelona Organizations",
       url: "https://decidim.coterrats.com",
-      codegram: true,
+      tags: ["codegram"],
       repo: "https://github.com/AjuntamentdeBarcelona/decidim-barcelona-organizations/"
     },
     "calafell" => %{
       name: "Decidim Calafell",
       url: "https://decidim.calafell.cat",
-      codegram: true,
+      tags: ["codegram"],
       repo: "https://github.com/AjuntamentdeCalafell/decidim-calafell/"
     },
     "hospitalet" => %{
       name: "L'H-ON Participa",
       url: "https://www.lhon-participa.cat",
-      codegram: true,
+      tags: ["codegram"],
       repo: "https://github.com/HospitaletDeLlobregat/decidim-hospitalet/"
     },
     "terrassa" => %{
       name: "Participa Terrassa",
       url: "https://participa.terrassa.cat",
-      codegram: true,
+      tags: ["codegram"],
       repo: "https://github.com/AjuntamentDeTerrassa/decidim-terrassa/"
     },
     "sabadell" => %{
       name: "Decidim Sabadell",
       url: "https://decidim.sabadell.cat",
-      codegram: true,
+      tags: ["codegram"],
       repo: "https://github.com/AjuntamentDeSabadell/decidim-sabadell/"
     },
     "gava" => %{
@@ -53,13 +53,13 @@ defmodule DecidimMonitor.Api.Installation do
     "sant_cugat" => %{
       name: "Decidim Sant Cugat",
       url: "https://decidim.santcugat.cat/",
-      codegram: true,
+      tags: ["codegram"],
       repo: "https://github.com/AjuntamentdeSantCugat/decidim-sant_cugat/"
     },
     "localret" => %{
       name: "Decidim Localret",
       url: "http://decidim.localret.codegram.com",
-      codegram: true,
+      tags: ["codegram"],
       repo: "https://github.com/codegram/decidim-localret/"
     },
     "vilanova" => %{
@@ -71,8 +71,7 @@ defmodule DecidimMonitor.Api.Installation do
     "staging" => %{
       name: "Decidim Staging",
       url: "http://staging.decidim.codegram.com",
-      codegram: true,
-      repo: ""
+      tags: ["codegram"],
     },
     "pamplona" => %{
       name: "Erabaki Pamplona",
@@ -95,7 +94,7 @@ defmodule DecidimMonitor.Api.Installation do
     "badalona" => %{
       name: "Decidim Badalona",
       url: "https://decidim.badalona.cat",
-      codegram: true,
+      tags: ["codegram"],
       repo: "https://github.com/AjuntamentdeBadalona/decidim-badalona/"
     },
     "cndp" => %{
@@ -120,7 +119,6 @@ defmodule DecidimMonitor.Api.Installation do
       name: "Decideix Esparreguera",
       url: "http://decideix.esparreguera.cat/",
       codegram: false,
-      repo: ""
     },
     "fundaction" => %{
       name: "FundAction",
@@ -132,13 +130,11 @@ defmodule DecidimMonitor.Api.Installation do
       name: "Blandine Brocard",
       url: "https://participez.blandinebrocard.com/",
       codegram: false,
-      repo: ""
     },
     "nouvelle-aquitaine" => %{
       name: "Nouvelle-Aquitaine",
       url: "https://concertations.nouvelle-aquitaine.fr/",
       codegram: false,
-      repo: ""
     },
     "castilla-la-mancha" => %{
       name: "Participa Castilla La Mancha",
@@ -170,7 +166,8 @@ defmodule DecidimMonitor.Api.Installation do
       name: installation[:name],
       version: remote_data[:version],
       status: remote_data[:status],
-      codegram: installation[:codegram]
+      tags: installation[:tags] || [],
+      codegram: Enum.member?(installation[:tags] || [], "codegram")
     }
   end
 
@@ -181,7 +178,7 @@ defmodule DecidimMonitor.Api.Installation do
          %{version: version} <- decidim do
       %{status: "online", version: version}
     else
-      _ -> %{status: "error", version: "N/A"}
+      _ -> %{status: "error"}
     end
   end
 

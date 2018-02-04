@@ -41,11 +41,11 @@ export class AppSearch implements OnInit {
     this.version$ = this.route.queryParams.pipe(map(params => params.version));
 
     this.installations$ = this.route.queryParams.pipe(
-      switchMap(({ version }) =>
+      switchMap(({ version, tags }) =>
         this.apollo
           .watchQuery<AppSearchQuery>({
             query,
-            variables: { version },
+            variables: { version, tags: tags ? tags.split(",") : null },
             pollInterval: 10000
           })
           .valueChanges.pipe(

@@ -17,6 +17,7 @@ defmodule DecidimMonitor.Api.Schema do
     @desc "Get all the installations"
     field :installations, type: list_of(:installation) do
       arg(:version, :string)
+      arg(:tags, list_of(:string))
 
       resolve(fn args, _ ->
         result =
@@ -31,6 +32,15 @@ defmodule DecidimMonitor.Api.Schema do
                  true
                end
              end)
+          |> Flow.filter(fn installation ->
+              if args[:tags] do
+                Enum.all?(args[:tags], fn (tag) -> 
+                  Enum.member?(installation[:tags], tag)
+                end)
+              else
+                true
+              end
+            end)
           |> Enum.to_list()
 
         {:ok, result}
@@ -47,7 +57,7 @@ defmodule DecidimMonitor.Api.Schema do
   @desc "Decidim's installation"
   object :installation do
     @desc "This installation's ID"
-    field(:id, :id)
+    field(:id, non_null(:id))
 
     @desc "The installation's name"
     field(:name, :string)
@@ -64,8 +74,11 @@ defmodule DecidimMonitor.Api.Schema do
     @desc "This installation's status"
     field(:status, :string)
 
-    @desc "Whether the installation is maintained by codegram or not"
-    field(:codegram, :boolean)
+    @desc "Wether the installation is maintained by codegram or not."
+    field(:codegram, :boolean, deprecate: "Use the tags field instead.")
+
+    @desc "A list of tags associated with this installation"
+    field(:tags, list_of(:string))
   end
 
   @desc "Decidim's version"

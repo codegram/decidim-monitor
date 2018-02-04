@@ -11,11 +11,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "download_schema":
-      "apollo-codegen introspect-schema http://localhost:4000/api --output src/schema.json",
+    "download_schema": "apollo-codegen introspect-schema http://localhost:4000/api --output src/schema.json",
     "pregenerate_types": "npm run download_schema",
-    "generate_types":
-      "apollo-codegen generate **/*.graphql --schema src/schema.json --target typescript --output src/app/graphql-types.ts"
+    "generate_types": "apollo-codegen generate **/*.graphql --schema src/schema.json --target typescript --output src/app/graphql-types.ts"
   },
   "private": true,
   "dependencies": {
@@ -30,6 +28,9 @@
     "@angular/platform-browser": "^5.2.3",
     "@angular/platform-browser-dynamic": "^5.2.3",
     "@angular/router": "^5.2.3",
+    "@ngrx/effects": "^5.0.1",
+    "@ngrx/router-store": "^5.0.1",
+    "@ngrx/store": "^5.0.0",
     "apollo-angular": "^1.0.1",
     "apollo-angular-link-http": "^1.0.2-beta.0",
     "apollo-cache-inmemory": "^1.1.5",
@@ -45,6 +46,7 @@
   "devDependencies": {
     "@angular/cli": "^1.6.7",
     "@angular/compiler-cli": "^5.2.3",
+    "@ngrx/schematics": "^5.0.0",
     "@types/jasmine": "^2.8.6",
     "@types/node": "^9.4.0",
     "codelyzer": "^4.1.0",

@@ -4,7 +4,7 @@ query AppHome {
     url
     repo
     version
-    codegram
+    tags
   }
 
   decidim {

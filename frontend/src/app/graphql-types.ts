@@ -12,8 +12,8 @@ export interface AppHomeQuery {
     repo: string | null,
     // Decidim's installed version
     version: string | null,
-    // Whether the installation is maintained by codegram or not
-    codegram: boolean | null,
+    // A list of tags associated with this installation
+    tags: Array< string | null > | null,
   } | null > | null,
   decidim:  {
     // Decidim's latest released version
@@ -23,6 +23,7 @@ export interface AppHomeQuery {
 
 export interface AppSearchQueryVariables {
   version?: string | null,
+  tags?: Array< string | null > | null,
 };
 
 export interface AppSearchQuery {
@@ -36,8 +37,8 @@ export interface AppSearchQuery {
     repo: string | null,
     // Decidim's installed version
     version: string | null,
-    // Whether the installation is maintained by codegram or not
-    codegram: boolean | null,
+    // A list of tags associated with this installation
+    tags: Array< string | null > | null,
   } | null > | null,
   decidim:  {
     // Decidim's latest released version

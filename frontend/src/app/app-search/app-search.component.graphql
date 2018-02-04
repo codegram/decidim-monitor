@@ -1,10 +1,10 @@
-query AppSearch($version: String) {
-  installations(version: $version) {
+query AppSearch($version: String, $tags: [String]) {
+  installations(version: $version, tags: $tags) {
     name
     url
     repo
     version
-    codegram
+    tags
   }
 
   decidim {

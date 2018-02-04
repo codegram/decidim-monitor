@@ -10,9 +10,15 @@
 
   <mat-chip-list selectable="false">
     <mat-chip color="none" selected="true" ngClass="status">
-      <a routerLink="/search" [queryParams]="{ version: installation.version }">{{installation.version}}</a>
+      <a routerLink="/search" [queryParams]="{ version: installation.version }">
+        {{installation.version || "N/A"}}
+      </a>
     </mat-chip>
-    <mat-chip *ngIf="installation.codegram">Codegram</mat-chip>
+    <mat-chip *ngFor="let tag of installation.tags">
+      <a routerLink="/search" [queryParams]="{ tags: tag }">
+        {{tag}}
+      </a>
+    </mat-chip>
   </mat-chip-list>
 
   <mat-card-actions>
