@@ -31,7 +31,7 @@ export class AppHome implements OnInit {
 
   ngOnInit() {
     this.installations$ = this.apollo
-      .watchQuery<AppHomeQuery>({ query, pollInterval: 10000 })
+      .watchQuery<AppHomeQuery>({ query })
       .valueChanges.pipe(
         map(({ data }) =>
           data.installations

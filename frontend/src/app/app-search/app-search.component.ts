@@ -54,8 +54,7 @@ export class AppSearch implements OnInit {
         this.apollo
           .watchQuery<AppSearchQuery>({
             query,
-            variables: { version, tags: tags ? tags.split(",") : null },
-            pollInterval: 10000
+            variables: { version, tags: tags ? tags.split(",") : null }
           })
           .valueChanges.pipe(
             map(({ data }) =>

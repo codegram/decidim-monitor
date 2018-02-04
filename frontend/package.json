@@ -31,7 +31,9 @@
     "@ngrx/effects": "^5.0.1",
     "@ngrx/router-store": "^5.0.1",
     "@ngrx/store": "^5.0.0",
+    "@ngrx/store-devtools": "^5.0.1",
     "apollo-angular": "^1.0.1",
+    "apollo-angular-cache-ngrx": "^1.0.0-beta.0",
     "apollo-angular-link-http": "^1.0.2-beta.0",
     "apollo-cache-inmemory": "^1.1.5",
     "apollo-client": "^2.2.1",
@@ -39,6 +41,7 @@
     "core-js": "^2.5.3",
     "graphql": "^0.12.3",
     "graphql-tag": "^2.6.1",
+    "ngrx-store-freeze": "^0.2.1",
     "rxjs": "^5.5.6",
     "semver": "^5.5.0",
     "zone.js": "^0.8.20"
