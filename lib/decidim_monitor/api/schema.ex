@@ -11,7 +11,11 @@ defmodule DecidimMonitor.Api.Schema do
       @desc "The ID of the installation"
       arg(:id, non_null(:id))
 
-      resolve(fn %{id: id}, _ -> {:ok, Installation.lookup(id)} end)
+      resolve(fn %{id: id}, _ ->
+        async(fn ->
+          {:ok, Installation.lookup(id)}
+        end)
+      end)
     end
 
     @desc "Get all the installations"
@@ -20,30 +24,32 @@ defmodule DecidimMonitor.Api.Schema do
       arg(:tags, list_of(:string))
 
       resolve(fn args, _ ->
-        result =
-          Map.keys(Installation.all())
-          |> Flow.from_enumerable()
-          |> Flow.partition(max_demand: 50, stages: 50)
-          |> Flow.map(fn id -> Installation.lookup(id) end)
-          |> Flow.filter(fn installation ->
-               if args[:version] do
-                 installation[:version] == args[:version]
-               else
-                 true
-               end
-             end)
-          |> Flow.filter(fn installation ->
+        async(fn ->
+          result =
+            Map.keys(Installation.all())
+            |> Flow.from_enumerable()
+            |> Flow.partition(max_demand: 50, stages: 50)
+            |> Flow.map(fn id -> Installation.lookup(id) end)
+            |> Flow.filter(fn installation ->
+              if args[:version] do
+                installation[:version] == args[:version]
+              else
+                true
+              end
+            end)
+            |> Flow.filter(fn installation ->
               if args[:tags] do
-                Enum.all?(args[:tags], fn (tag) -> 
+                Enum.all?(args[:tags], fn tag ->
                   Enum.member?(installation[:tags], tag)
                 end)
               else
                 true
               end
             end)
-          |> Enum.to_list()
+            |> Enum.to_list()
 
-        {:ok, result}
+          {:ok, result}
+        end)
       end)
     end
 
