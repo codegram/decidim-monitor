@@ -99,7 +99,7 @@ defmodule DecidimMonitor.Api.Installation do
     },
     "cndp" => %{
       name: "Commission Nationale du Débat Public",
-      url: "https://cndp.opensourcepolitics.eu",
+      url: "https://participons.debatpublic.fr",
       codegram: false,
       repo: "https://github.com/OpenSourcePolitics/decidim-cndp"
     },
