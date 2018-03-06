@@ -141,6 +141,11 @@ defmodule DecidimMonitor.Api.Installation do
       url: "https://participa.castillalamancha.es/",
       codegram: false,
       repo: "https://github.com/castilla-lamancha/participa-castillalamancha"
+    },
+    "veracruz" => %{
+      name: "Decide Veracruz",
+      url: "http://decide.veracruzmunicipio.gob.mx/",
+      codegram: false
     }
   }
 
