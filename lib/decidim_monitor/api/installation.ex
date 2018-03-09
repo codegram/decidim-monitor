@@ -146,6 +146,16 @@ defmodule DecidimMonitor.Api.Installation do
       name: "Decide Veracruz",
       url: "http://decide.veracruzmunicipio.gob.mx/",
       codegram: false
+    }, 
+    "esplugues" => %{
+      name: "Esplugues Participa",
+      url: "https://espluguesparticipa.diba.cat/",
+      codegram: false
+    },
+    "metadecidim-fr" => %{
+      name: "Club des utilisateurs de Decidim",
+      url: "https://club.decidim.opensourcepolitics.eu/",
+      codegram: false
     }
   }
 
