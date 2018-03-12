@@ -156,6 +156,11 @@ defmodule DecidimMonitor.Api.Installation do
       name: "Club des utilisateurs de Decidim",
       url: "https://club.decidim.opensourcepolitics.eu/",
       codegram: false
+    },
+    "rubi" => %{
+      name: "Participa Rubí",
+      url: "https://participa.rubi.cat/",
+      codegram: false
     }
   }
 
