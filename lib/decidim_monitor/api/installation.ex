@@ -161,6 +161,11 @@ defmodule DecidimMonitor.Api.Installation do
       name: "Participa Rubí",
       url: "https://participa.rubi.cat/",
       codegram: false
+    },
+    "malgrat" => %{
+      name: "Malgrat Decideix",
+      url: "https://decideix.ajmalgrat.cat/",
+      codegram: false
     }
   }
 
