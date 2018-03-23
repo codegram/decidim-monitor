@@ -11,4 +11,6 @@ config :logger, level: :warn
 
 config :wallaby,
   driver: Wallaby.Experimental.Chrome,
-  screenshot_on_failure: true
+  screenshot_on_failure: true,
+  chrome: [headless: true],
+  hackney_options: [timeout: 20_000]
