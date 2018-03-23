@@ -14,3 +14,13 @@ config :wallaby,
   screenshot_on_failure: true,
   chrome: [headless: true],
   hackney_options: [timeout: 20_000]
+
+config :decidim_monitor, DecidimMonitor.Api.Installation,
+  installations: %{
+    "barcelona" => %{
+      name: "Decidim Staging",
+      url: "http://staging.decidim.codegram.com",
+      tags: ["codegram"],
+      repo: "http://github.com/decidim/decidim"
+    }
+  }
