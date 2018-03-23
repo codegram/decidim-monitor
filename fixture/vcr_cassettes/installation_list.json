@@ -1,0 +1,83 @@
+[
+  {
+    "request": {
+      "body": "{\"query\":\"{ decidim { version } }\"}",
+      "headers": {
+        "content-type": "application/json"
+      },
+      "method": "post",
+      "options": [],
+      "request_body": "",
+      "url": "http://staging.decidim.codegram.com/api"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"data\":{\"decidim\":{\"version\":\"0.10.0.pre\"}}}",
+      "headers": {
+        "Connection": "keep-alive",
+        "Content-Type": "application/json; charset=utf-8",
+        "Transfer-Encoding": "chunked",
+        "Status": "200 OK",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "Vary": "Origin",
+        "X-Xss-Protection": "1; mode=block",
+        "X-Request-Id": "873accd2-99ca-4df2-91fa-1b00e2c242e7",
+        "Etag": "W/\"f289ced6da64fa5833d13f4a588bdc26\"",
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-Runtime": "0.032374",
+        "X-Content-Type-Options": "nosniff",
+        "Date": "Fri, 23 Mar 2018 13:31:25 GMT",
+        "X-Powered-By": "Phusion Passenger 5.2.1",
+        "Server": "nginx/1.12.2 + Phusion Passenger 5.2.1",
+        "Via": "1.1 vegur"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://rubygems.org/api/v1/gems/decidim.json"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"name\":\"decidim\",\"downloads\":21340,\"version\":\"0.9.3\",\"version_downloads\":262,\"platform\":\"ruby\",\"authors\":\"Josep Jaume Rey Peroy, Marc Riera Casals, Oriol Gual Oliva\",\"info\":\"A generator and multiple gems made with Ruby on Rails.\",\"licenses\":[\"AGPL-3.0\"],\"metadata\":{},\"sha\":\"0b1a0b214f232a6195cab1a7fbc6602a22c5cb091cd8cb3bd836f01bc33f7378\",\"project_uri\":\"https://rubygems.org/gems/decidim\",\"gem_uri\":\"https://rubygems.org/gems/decidim-0.9.3.gem\",\"homepage_uri\":\"https://github.com/decidim/decidim\",\"wiki_uri\":null,\"documentation_uri\":\"http://www.rubydoc.info/gems/decidim/0.9.3\",\"mailing_list_uri\":null,\"source_code_uri\":null,\"bug_tracker_uri\":null,\"changelog_uri\":null,\"dependencies\":{\"development\":[{\"name\":\"bundler\",\"requirements\":\"~\\u003e 1.12\"},{\"name\":\"rake\",\"requirements\":\"~\\u003e 12.0\"},{\"name\":\"rspec\",\"requirements\":\"~\\u003e 3.0\"}],\"runtime\":[{\"name\":\"decidim-accountability\",\"requirements\":\"= 0.9.3\"},{\"name\":\"decidim-admin\",\"requirements\":\"= 0.9.3\"},{\"name\":\"decidim-api\",\"requirements\":\"= 0.9.3\"},{\"name\":\"decidim-assemblies\",\"requirements\":\"= 0.9.3\"},{\"name\":\"decidim-budgets\",\"requirements\":\"= 0.9.3\"},{\"name\":\"decidim-comments\",\"requirements\":\"= 0.9.3\"},{\"name\":\"decidim-core\",\"requirements\":\"= 0.9.3\"},{\"name\":\"decidim-debates\",\"requirements\":\"= 0.9.3\"},{\"name\":\"decidim-meetings\",\"requirements\":\"= 0.9.3\"},{\"name\":\"decidim-pages\",\"requirements\":\"= 0.9.3\"},{\"name\":\"decidim-participatory_processes\",\"requirements\":\"= 0.9.3\"},{\"name\":\"decidim-proposals\",\"requirements\":\"= 0.9.3\"},{\"name\":\"decidim-surveys\",\"requirements\":\"= 0.9.3\"},{\"name\":\"decidim-system\",\"requirements\":\"= 0.9.3\"},{\"name\":\"decidim-verifications\",\"requirements\":\"= 0.9.3\"}]}}",
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Content-Security-Policy": "default-src 'self'; script-src 'self' https://secure.gaug.es; style-src 'self' https://fonts.googleapis.com; img-src 'self' https://secure.gaug.es https://gravatar.com https://secure.gravatar.com; font-src 'self' https://fonts.gstatic.com; connect-src https://s3-us-west-2.amazonaws.com/rubygems-dumps/; frame-src https://ghbtns.com",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET",
+        "Access-Control-Max-Age": "1728000",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "90229cd2-334b-4d2b-a470-5c4fa7559a5c",
+        "X-Runtime": "0.014831",
+        "Strict-Transport-Security": "max-age=0",
+        "X-UA-Compatible": "IE=Edge,chrome=1",
+        "X-Backend": "F_Rails 54.186.104.15:443",
+        "Transfer-Encoding": "chunked",
+        "Accept-Ranges": "bytes",
+        "Date": "Fri, 23 Mar 2018 13:31:25 GMT",
+        "Via": "1.1 varnish",
+        "Age": "0",
+        "Connection": "keep-alive",
+        "X-Served-By": "cache-mad9427-MAD",
+        "X-Cache": "MISS",
+        "X-Cache-Hits": "0",
+        "X-Timer": "S1521811886.555536,VS0,VE196",
+        "Vary": "Accept-Encoding,Fastly-SSL",
+        "ETag": "\"1d59f26ee486a7e7f7ad4a5c4e39580f\"",
+        "Server": "RubyGems.org"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
