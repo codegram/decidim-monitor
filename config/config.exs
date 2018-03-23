@@ -186,6 +186,11 @@ config :decidim_monitor, DecidimMonitor.Api.Installation,
       name: "Malgrat Decideix",
       url: "https://decideix.ajmalgrat.cat/",
       codegram: false
+    },
+    "gencat" => %{
+      name: "Generalitat de Catalunya",
+      url: "https://participa.gencat.cat/",
+      codegram: false
     }
   }
 
