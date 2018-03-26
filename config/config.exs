@@ -186,6 +186,26 @@ config :decidim_monitor, DecidimMonitor.Api.Installation,
       name: "Malgrat Decideix",
       url: "https://decideix.ajmalgrat.cat/",
       codegram: false
+    },
+    "forum-franco-ruse" => %{
+      name: "Forum Franco-Ruse",
+      url: "https://forum.dialogue-trianon.fr/",
+      codegram: false
+    },
+    "lille" => %{
+      name: "Métropole Européene de Lille",
+      url: "https://participation.lillemetropole.fr/",
+      codegram: false
+    },
+    "oidp" => %{
+      name: "OIDP",
+      url: "https://participate.oidp.net/",
+      codegram: false
+    },
+    "amyocs" => %{
+      name: "amycos",
+      url: "http://burgos.decidimos.pt/",
+      codegram: false
     }
   }
 
