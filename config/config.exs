@@ -187,6 +187,11 @@ config :decidim_monitor, DecidimMonitor.Api.Installation,
       url: "https://decideix.ajmalgrat.cat/",
       codegram: false
     },
+    "gencat" => %{
+      name: "Generalitat de Catalunya",
+      url: "https://participa.gencat.cat/",
+      codegram: false
+    },
     "forum-franco-ruse" => %{
       name: "Forum Franco-Ruse",
       url: "https://forum.dialogue-trianon.fr/",
