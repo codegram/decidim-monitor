@@ -77,6 +77,9 @@ defmodule DecidimMonitor.Api.Schema do
     @desc "Decidim's installed version"
     field(:version, :string)
 
+    @desc "Users of this installation"
+    field(:users, :integer)
+
     @desc "This installation's status"
     field(:status, :string)
 

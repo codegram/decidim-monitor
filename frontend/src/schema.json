@@ -171,6 +171,18 @@
             {
               "type": {
                 "ofType": null,
+                "name": "Int",
+                "kind": "SCALAR"
+              },
+              "name": "users",
+              "isDeprecated": false,
+              "description": "Users of this installation",
+              "deprecationReason": null,
+              "args": []
+            },
+            {
+              "type": {
+                "ofType": null,
                 "name": "String",
                 "kind": "SCALAR"
               },

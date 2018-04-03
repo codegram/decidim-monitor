@@ -12,6 +12,8 @@ export interface AppHomeQuery {
     repo: string | null,
     // Decidim's installed version
     version: string | null,
+    // Users of this installation
+    users: number | null,
     // A list of tags associated with this installation
     tags: Array< string | null > | null,
   } | null > | null,
@@ -37,6 +39,8 @@ export interface AppSearchQuery {
     repo: string | null,
     // Decidim's installed version
     version: string | null,
+    // Users of this installation
+    users: number | null,
     // A list of tags associated with this installation
     tags: Array< string | null > | null,
   } | null > | null,
@@ -55,6 +59,8 @@ export interface AppInstallationFragment {
   repo: string | null,
   // Decidim's installed version
   version: string | null,
+  // Users of this installation
+  users: number | null,
   // A list of tags associated with this installation
   tags: Array< string | null > | null,
 };

@@ -3,5 +3,6 @@ fragment AppInstallation on Installation {
   url
   repo
   version
+  users
   tags
 }

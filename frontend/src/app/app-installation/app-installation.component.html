@@ -19,6 +19,10 @@
         {{tag}}
       </a>
     </mat-chip>
+
+    <mat-chip *ngIf="installation.users">
+      {{installation.users}} users
+    </mat-chip>
   </mat-chip-list>
 
   <mat-card-actions>
