@@ -1,6 +1,6 @@
 defmodule DecidimClient do
   use Tesla
-  adapter(:ibrowse)
+  adapter(:hackney, insecure: true)
 
   plug(Tesla.Middleware.Tuples)
   plug(Tesla.Middleware.Timeout, timeout: 4000)
