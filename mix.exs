@@ -20,7 +20,7 @@ defmodule DecidimMonitor.Mixfile do
   def application do
     [
       mod: {DecidimMonitor.Application, []},
-      extra_applications: [:logger, :runtime_tools, :absinthe_plug, :ibrowse]
+      extra_applications: [:logger, :runtime_tools, :absinthe_plug]
     ]
   end
 
@@ -44,8 +44,7 @@ defmodule DecidimMonitor.Mixfile do
       {:tesla, "~> 0.9"},
       {:wallaby, "~> 0.19", only: :test},
       {:poison, "~> 3.0"},
-      {:exvcr, "~> 0.10", only: :test},
-      {:ibrowse, "~> 4.2"}
+      {:hackney, "~> 1.12"}
     ]
   end
 

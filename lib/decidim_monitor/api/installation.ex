@@ -12,7 +12,7 @@ defmodule DecidimMonitor.Api.Installation do
   end
 
   def lookup(id) do
-    installation = all[id]
+    installation = all()[id]
     url = installation[:url]
     remote_data = remote_data(url)
 
