@@ -64,12 +64,6 @@ config :decidim_monitor, DecidimMonitor.Api.Installation,
       tags: ["codegram"],
       repo: "https://github.com/AjuntamentDeSabadell/decidim-sabadell/"
     },
-    "gava" => %{
-      name: "Participa Gavà",
-      url: "https://participa.gavaciutat.cat",
-      codegram: false,
-      repo: "https://github.com/AjuntamentDeGava/decidim-gava/"
-    },
     "sant_cugat" => %{
       name: "Decidim Sant Cugat",
       url: "https://decidim.santcugat.cat/",
@@ -202,15 +196,41 @@ config :decidim_monitor, DecidimMonitor.Api.Installation,
       url: "https://participation.lillemetropole.fr/",
       codegram: false
     },
-    "oidp" => %{
-      name: "OIDP",
-      url: "https://participate.oidp.net/",
-      codegram: false
-    },
     "amyocs" => %{
       name: "amycos",
       url: "http://burgos.decidimos.pt/",
       codegram: false
+    },
+    "oidp" => %{
+      name: "OIDP",
+      url: "https://participate.oidp.net/",
+      tags: ["CodiTramuntana"],
+      codegram: false
+    },
+    "sant-boi" => %{
+      name: "Participa Sant Boi",
+      url: "https://participa.santboi.cat/",
+      tags: ["CodiTramuntana"],
+      codegram: false,
+    },
+    "som-energia" => %{
+      name: "Participa Som Energia",
+      url: "https://participa.somenergia.coop/",
+      tags: ["CodiTramuntana"],
+      codegram: false,
+    },
+    "gava" => %{
+      name: "Participa Gavà",
+      url: "https://participa.gavaciutat.cat",
+      codegram: false,
+      tags: ["CodiTramuntana"],
+      repo: "https://github.com/AjuntamentDeGava/decidim-gava/"
+    },
+    "salt" => %{
+      name: "Decidim Salt",
+      url: "https://decidim.salt.cat/",
+      codegram: false,
+      tags: ["CodiTramuntana"],
     }
   }
 
