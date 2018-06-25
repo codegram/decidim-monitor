@@ -24,7 +24,7 @@ jobs:
           name: Push deployment image
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              docker login --username=_ --password=$HEROKU_AUTH_TOKEN registry.heroku.com
+              docker login --username=_ --password=$HEROKU_API_KEY registry.heroku.com
               docker push registry.heroku.com/decidim-monitor/web
             fi
       - run:
@@ -33,4 +33,10 @@ jobs:
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               docker login --username=$DOCKER_USER --password=$DOCKER_PASS
               docker push decidim/decidim-monitor:latest
+            fi
+      - run:
+          name: Push docker hub image
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              heroku container:release web
             fi
