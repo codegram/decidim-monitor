@@ -10,6 +10,7 @@ jobs:
       - run:
           name: Install Heroku CLI
           command: |
+            apk add curl
             curl https://cli-assets.heroku.com/install.sh | sh
       - run:
           name: Pulling docker image
