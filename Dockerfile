@@ -13,6 +13,8 @@ RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y bash inotify-tools
 RUN apt-get install -y nodejs
 
+RUN curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
+
 RUN curl -sL https://deb.nodesource.com/setup_9.x | bash - && \
     apt-get install nodejs
 
