@@ -8,6 +8,10 @@ jobs:
       - checkout
       - setup_remote_docker
       - run:
+          name: Install Heroku CLI
+          command: |
+            RUN curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
+      - run:
           name: Pulling docker image
           command: |
             docker pull decidim/decidim-monitor || true
@@ -24,8 +28,7 @@ jobs:
           name: Push deployment image
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              docker login --username=_ --password=$HEROKU_API_KEY registry.heroku.com
-              docker push registry.heroku.com/decidim-monitor/web
+              heroku container:release web
             fi
       - run:
           name: Push docker hub image
@@ -33,10 +36,4 @@ jobs:
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               docker login --username=$DOCKER_USER --password=$DOCKER_PASS
               docker push decidim/decidim-monitor:latest
-            fi
-      - run:
-          name: Push docker hub image
-          command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              heroku container:release web
             fi
