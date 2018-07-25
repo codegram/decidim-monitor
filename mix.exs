@@ -41,10 +41,11 @@ defmodule DecidimMonitor.Mixfile do
       {:cowboy, "~> 1.0"},
       {:flow, "~> 0.13"},
       {:absinthe_plug, "~> 1.3"},
-      {:tesla, "~> 0.9"},
+      {:tesla, "~> 1.1.0"},
       {:wallaby, "~> 0.19", only: :test},
       {:poison, "~> 3.0"},
-      {:hackney, "~> 1.12"}
+      {:hackney, "~> 1.12"},
+      {:jason, "~> 1.0"}
     ]
   end
 

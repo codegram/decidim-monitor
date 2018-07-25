@@ -1,8 +1,7 @@
 defmodule DecidimClient do
   use Tesla
-  adapter(:hackney, insecure: true)
+  adapter(Tesla.Adapter.Hackney, insecure: true)
 
-  plug(Tesla.Middleware.Tuples)
   plug(Tesla.Middleware.Timeout, timeout: 4000)
   plug(Tesla.Middleware.Compression)
   plug(Tesla.Middleware.Logger)
