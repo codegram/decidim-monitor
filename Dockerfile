@@ -39,6 +39,3 @@ COPY . .
 
 RUN mix compile
 RUN if [ "${MIX_ENV}" = "prod" ]; then mix phx.digest; fi
-
-ENTRYPOINT ["./docker-erlang-signals.sh"]
-CMD ["phx.server"]
