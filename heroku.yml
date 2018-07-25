@@ -2,4 +2,4 @@ build:
   docker:
     web: Dockerfile
 run:
-  web: phx.server
+  web: ./docker-erlang-signals.sh mix phx.server
