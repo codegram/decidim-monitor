@@ -26,12 +26,6 @@ jobs:
             docker build -t decidim-monitor:ci -f Dockerfile.ci --build-arg FROM=decidim/decidim-monitor:latest .
             docker run -it decidim-monitor:ci
       - run:
-          name: Push deployment image
-          command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              heroku container:release web --app decidim-monitor
-            fi
-      - run:
           name: Push docker hub image
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
