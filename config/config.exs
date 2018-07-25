@@ -30,7 +30,7 @@ config :decidim_monitor, DecidimMonitor.Api.Installation,
     },
     "metadecidim" => %{
       name: "Metadecidim",
-      url: "https://meta.decidim.barcelona",
+      url: "https://meta.decidim.org",
       tags: ["codegram"],
       repo: "https://github.com/decidim/metadecidim/"
     },
@@ -211,13 +211,13 @@ config :decidim_monitor, DecidimMonitor.Api.Installation,
       name: "Participa Sant Boi",
       url: "https://participa.santboi.cat/",
       tags: ["CodiTramuntana"],
-      codegram: false,
+      codegram: false
     },
     "som-energia" => %{
       name: "Participa Som Energia",
       url: "https://participa.somenergia.coop/",
       tags: ["CodiTramuntana"],
-      codegram: false,
+      codegram: false
     },
     "gava" => %{
       name: "Participa Gavà",
@@ -230,7 +230,7 @@ config :decidim_monitor, DecidimMonitor.Api.Installation,
       name: "Decidim Salt",
       url: "https://decidim.salt.cat/",
       codegram: false,
-      tags: ["CodiTramuntana"],
+      tags: ["CodiTramuntana"]
     }
   }
 
