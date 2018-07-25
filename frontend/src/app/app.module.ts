@@ -1,43 +1,32 @@
-import { AppSearch } from "./app-search/app-search.component";
-import { AppLoading } from "./app-loading/app-loading.component";
-import { InstallationList } from "./installation-list/installation-list.component";
-import { ApolloModule, Apollo } from "apollo-angular";
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EffectsModule } from '@ngrx/effects';
+import { RouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router-store';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { Apollo, ApolloModule } from 'apollo-angular';
+import { NgrxCache, NgrxCacheModule } from 'apollo-angular-cache-ngrx';
+import { HttpLink, HttpLinkModule } from 'apollo-angular-link-http';
 
-import { StoreModule } from "@ngrx/store";
-import { EffectsModule } from "@ngrx/effects";
-import {
-  StoreRouterConnectingModule,
-  RouterStateSerializer
-} from "@ngrx/router-store";
-import { StoreDevtoolsModule } from "@ngrx/store-devtools";
-
-import { reducers, metaReducers } from "./reducers";
-
-import { MatCardModule } from "@angular/material/card";
-import { MatToolbarModule } from "@angular/material/toolbar";
-import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
-import { MatChipsModule } from "@angular/material/chips";
-import { MatIconModule } from "@angular/material/icon";
-import { MatButtonModule } from "@angular/material/button";
-
-import { BrowserModule } from "@angular/platform-browser";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { NgModule } from "@angular/core";
-import { FormsModule } from "@angular/forms";
-import { HttpModule } from "@angular/http";
-
-import { InstallationComponent } from "./app-installation/app-installation.component";
-import { AppComponent } from "./app.component";
-import { AppHome } from "./app-home/app-home.component";
-import { AppRoutingModule } from "./app-routing.module";
-import { HttpClientModule } from "@angular/common/http";
-
-import { HttpLinkModule, HttpLink } from "apollo-angular-link-http";
-import { InMemoryCache } from "apollo-cache-inmemory";
-import { NgrxCacheModule, NgrxCache } from "apollo-angular-cache-ngrx";
-
-import { environment } from "../environments/environment";
-import { CustomRouterStateSerializer } from "./shared/utils";
+import { environment } from '../environments/environment';
+import { AppHome } from './app-home/app-home.component';
+import { InstallationComponent } from './app-installation/app-installation.component';
+import { AppLoading } from './app-loading/app-loading.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AppSearch } from './app-search/app-search.component';
+import { AppComponent } from './app.component';
+import { InstallationList } from './installation-list/installation-list.component';
+import { metaReducers, reducers } from './reducers';
+import { CustomRouterStateSerializer } from './shared/utils';
 
 @NgModule({
   declarations: [
@@ -54,7 +43,6 @@ import { CustomRouterStateSerializer } from "./shared/utils";
     BrowserAnimationsModule,
     ApolloModule,
     HttpLinkModule,
-    HttpClientModule,
     MatToolbarModule,
     MatCardModule,
     MatProgressSpinnerModule,
@@ -62,8 +50,8 @@ import { CustomRouterStateSerializer } from "./shared/utils";
     MatButtonModule,
     MatIconModule,
     FormsModule,
-    HttpModule,
     NgrxCacheModule,
+    HttpClientModule,
 
     StoreModule.forRoot(reducers, { metaReducers }),
 

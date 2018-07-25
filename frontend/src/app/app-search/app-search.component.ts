@@ -3,7 +3,7 @@ import { map, switchMap, tap } from "rxjs/operators";
 import { Component, OnInit, ChangeDetectorRef } from "@angular/core";
 import gql from "graphql-tag";
 import { ActivatedRoute } from "@angular/router";
-import { Observable } from "rxjs/Observable";
+import { Observable } from "rxjs";
 import { DocumentNode } from "graphql";
 import { AppSearchQuery } from "../graphql-types";
 

@@ -3,7 +3,7 @@ import { map } from "rxjs/operators";
 import { Component, OnInit } from "@angular/core";
 import gql from "graphql-tag";
 import { DocumentNode } from "graphql";
-import { Observable } from "rxjs/Observable";
+import { Observable } from "rxjs";
 import { AppHomeQuery } from "../graphql-types";
 
 const query: DocumentNode = require("graphql-tag/loader!./app-home.component.graphql");
