@@ -105,12 +105,6 @@ config :decidim_monitor, DecidimMonitor.Api.Installation,
       codegram: false,
       repo: "https://github.com/diputacioBCN/decidim-diba/"
     },
-    "badalona" => %{
-      name: "Decidim Badalona",
-      url: "https://decidim.badalona.cat",
-      tags: ["codegram"],
-      repo: "https://github.com/AjuntamentdeBadalona/decidim-badalona/"
-    },
     "cndp" => %{
       name: "Commission Nationale du Débat Public",
       url: "https://participons.debatpublic.fr",
