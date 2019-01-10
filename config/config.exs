@@ -67,7 +67,7 @@ config :decidim_monitor, DecidimMonitor.Api.Installation,
     "sant_cugat" => %{
       name: "Decidim Sant Cugat",
       url: "https://decidim.santcugat.cat/",
-      tags: ["codegram"],
+      tags: ["CodiTramuntana"],
       repo: "https://github.com/AjuntamentdeSantCugat/decidim-sant_cugat/"
     },
     "localret" => %{
