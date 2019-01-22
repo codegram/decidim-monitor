@@ -126,7 +126,9 @@ config :decidim_monitor, DecidimMonitor.Api.Installation,
     "esparreguera" => %{
       name: "Decideix Esparreguera",
       url: "http://decideix.esparreguera.cat/",
-      codegram: false
+      codegram: false,
+      tags: ["CodiTramuntana"],
+      repo: "https://github.com/CodiTramuntana/decidim-esparraguera-app"
     },
     "fundaction" => %{
       name: "FundAction",
@@ -213,19 +215,33 @@ config :decidim_monitor, DecidimMonitor.Api.Installation,
       tags: ["CodiTramuntana"],
       codegram: false
     },
+    "barcelona-energia" => %{
+      name: "Decidim Barcelona Energia",
+      url: "https://decidim.barcelonaenergia.cat/",
+      tags: ["CodiTramuntana"],
+      codegram: false,
+      repo: "https://github.com/CodiTramuntana/decidim-barcelona_energia-app"
+    },
     "gava" => %{
       name: "Participa Gavà",
       url: "https://participa.gavaciutat.cat",
       codegram: false,
-      tags: ["CodiTramuntana"],
       repo: "https://github.com/AjuntamentDeGava/decidim-gava/"
     },
     "salt" => %{
       name: "Decidim Salt",
       url: "https://decidim.salt.cat/",
       codegram: false,
-      tags: ["CodiTramuntana"]
-    }
+      tags: ["CodiTramuntana"],
+      repo: "https://github.com/CodiTramuntana/decidim-salt-app"
+    },
+    "digi" => %{
+      name: "Decidim Diputació de Girona",
+      url: "https://diputacio-decidim.ddgi.cat/",
+      codegram: false,
+      tags: ["CodiTramuntana"],
+      repo: "https://github.com/CodiTramuntana/decidim-diputacio-girona"
+    },
   }
 
 # Import environment specific config. This must remain at the bottom
