@@ -80,6 +80,7 @@ config :decidim_monitor, DecidimMonitor.Api.Installation,
       name: "Vilanova Participa",
       url: "http://participa.vilanova.cat",
       codegram: false,
+      tags: ["CodiTramuntana"],
       repo: "https://github.com/vilanovailageltru/decidim-vilanova/"
     },
     "staging" => %{
@@ -103,6 +104,7 @@ config :decidim_monitor, DecidimMonitor.Api.Installation,
       name: "Decidim Diputació de Barcelona",
       url: "http://decidim.diba.cat",
       codegram: false,
+      tags: ["CodiTramuntana"],
       repo: "https://github.com/diputacioBCN/decidim-diba/"
     },
     "cndp" => %{
@@ -180,7 +182,8 @@ config :decidim_monitor, DecidimMonitor.Api.Installation,
     "gencat" => %{
       name: "Generalitat de Catalunya",
       url: "https://participa.gencat.cat/",
-      codegram: false
+      codegram: false,
+      tags: ["DXC/CodiTramuntana"]
     },
     "forum-franco-ruse" => %{
       name: "Forum Franco-Ruse",
@@ -241,6 +244,34 @@ config :decidim_monitor, DecidimMonitor.Api.Installation,
       codegram: false,
       tags: ["CodiTramuntana"],
       repo: "https://github.com/CodiTramuntana/decidim-diputacio-girona"
+    },
+    "fapac" => %{
+      name: "Decidim FaPaC",
+      url: "https://participa.fapac.cat/",
+      codegram: false,
+      tags: ["CodiTramuntana"],
+      repo: "https://github.com/CodiTramuntana/decidim-fapac-app"
+    },
+    "i2cat" => %{
+      name: "Decidim i2Cat",
+      url: "https://reptes.cataloniaiot.com/",
+      codegram: false,
+      tags: ["CodiTramuntana"],
+      repo: "https://github.com/CodiTramuntana/decidim-i2cat-app"
+    },
+    "sitges" => %{
+      name: "Decidim Sitges",
+      url: "https://decidim.sitges.cat/",
+      codegram: false,
+      tags: ["CodiTramuntana"],
+      repo: "https://github.com/CodiTramuntana/decidim-sitges-app"
+    },
+    "salou" => %{
+      name: "Decidim Salou",
+      url: "https://participa.salou.cat/",
+      codegram: false,
+      tags: ["CodiTramuntana"],
+      repo: "https://github.com/CodiTramuntana/decidim-salou-app"
     },
   }
 
