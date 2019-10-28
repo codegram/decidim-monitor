@@ -8,11 +8,6 @@ jobs:
       - checkout
       - setup_remote_docker
       - run:
-          name: Install Heroku CLI
-          command: |
-            apk add --update nodejs nodejs-npm
-            npm install --global heroku
-      - run:
           name: Pulling docker image
           command: |
             docker pull decidim/decidim-monitor || true
