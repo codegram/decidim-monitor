@@ -25,19 +25,19 @@ config :decidim_monitor, DecidimMonitor.Api.Installation,
     "barcelona" => %{
       name: "Decidim Barcelona",
       url: "https://www.decidim.barcelona",
-      tags: ["codegram"],
+      tags: ["CodiTramuntana"],
       repo: "https://github.com/AjuntamentdeBarcelona/decidim-barcelona/"
     },
     "metadecidim" => %{
       name: "Metadecidim",
       url: "https://meta.decidim.org",
-      tags: ["codegram"],
+      tags: ["CodiTramuntana"],
       repo: "https://github.com/decidim/metadecidim/"
     },
     "decidim-barcelona-organizations" => %{
       name: "Decidim Barcelona Organizations",
       url: "https://decidim.coterrats.com",
-      tags: ["codegram"],
+      tags: ["CodiTramuntana"],
       repo: "https://github.com/AjuntamentdeBarcelona/decidim-barcelona-organizations/"
     },
     "calafell" => %{
@@ -84,7 +84,7 @@ config :decidim_monitor, DecidimMonitor.Api.Installation,
       repo: "https://github.com/vilanovailageltru/decidim-vilanova/"
     },
     "staging" => %{
-      name: "Decidim Staging",
+      name: "Codegram's Decidim Staging",
       url: "http://staging.decidim.codegram.com",
       tags: ["codegram"]
     },
