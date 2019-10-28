@@ -24,6 +24,6 @@ jobs:
           name: Push docker hub image
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              docker login --username=$DOCKER_USER --password=$DOCKER_PASS
+              echo $DOCKER_PASS | docker login --username=$DOCKER_USER --password-stdin
               docker push decidim/decidim-monitor:latest
             fi
