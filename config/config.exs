@@ -61,7 +61,7 @@ config :decidim_monitor, DecidimMonitor.Api.Installation,
     "sabadell" => %{
       name: "Decidim Sabadell",
       url: "https://decidim.sabadell.cat",
-      tags: ["codegram"],
+      tags: [],
       repo: "https://github.com/AjuntamentDeSabadell/decidim-sabadell/"
     },
     "sant_cugat" => %{
