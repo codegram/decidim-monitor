@@ -25,37 +25,37 @@ config :decidim_monitor, DecidimMonitor.Api.Installation,
     "barcelona" => %{
       name: "Decidim Barcelona",
       url: "https://www.decidim.barcelona",
-      tags: ["CodiTramuntana"],
+      tags: ["Codegram"],
       repo: "https://github.com/AjuntamentdeBarcelona/decidim-barcelona/"
     },
     "metadecidim" => %{
       name: "Metadecidim",
       url: "https://meta.decidim.org",
-      tags: ["CodiTramuntana"],
+      tags: ["Codegram"],
       repo: "https://github.com/decidim/metadecidim/"
     },
     "decidim-barcelona-organizations" => %{
       name: "Decidim Barcelona Organizations",
       url: "https://decidim.coterrats.com",
-      tags: ["CodiTramuntana"],
+      tags: ["Codegram"],
       repo: "https://github.com/AjuntamentdeBarcelona/decidim-barcelona-organizations/"
     },
     "calafell" => %{
       name: "Decidim Calafell",
       url: "https://decidim.calafell.cat",
-      tags: ["codegram"],
+      tags: ["Codegram"],
       repo: "https://github.com/AjuntamentdeCalafell/decidim-calafell/"
     },
     "hospitalet" => %{
       name: "L'H-ON Participa",
       url: "https://www.lhon-participa.cat",
-      tags: ["codegram"],
+      tags: ["Codegram"],
       repo: "https://github.com/HospitaletDeLlobregat/decidim-hospitalet/"
     },
     "terrassa" => %{
       name: "Participa Terrassa",
       url: "https://participa.terrassa.cat",
-      tags: ["codegram"],
+      tags: ["Codegram"],
       repo: "https://github.com/AjuntamentDeTerrassa/decidim-terrassa/"
     },
     "sabadell" => %{
@@ -79,8 +79,8 @@ config :decidim_monitor, DecidimMonitor.Api.Installation,
     "vilanova" => %{
       name: "Vilanova Participa",
       url: "http://participa.vilanova.cat",
-      codegram: false,
-      tags: ["CodiTramuntana"],
+      codegram: true,
+      tags: ["Codegram"],
       repo: "https://github.com/vilanovailageltru/decidim-vilanova/"
     },
     "staging" => %{
@@ -241,8 +241,8 @@ config :decidim_monitor, DecidimMonitor.Api.Installation,
     "digi" => %{
       name: "Decidim Diputació de Girona",
       url: "https://diputacio-decidim.ddgi.cat/",
-      codegram: false,
-      tags: ["CodiTramuntana"],
+      codegram: true,
+      tags: ["Codegram"],
       repo: "https://github.com/CodiTramuntana/decidim-diputacio-girona"
     },
     "fapac" => %{
