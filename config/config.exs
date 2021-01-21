@@ -243,7 +243,7 @@ config :decidim_monitor, DecidimMonitor.Api.Installation,
       url: "https://diputacio-decidim.ddgi.cat/",
       codegram: true,
       tags: ["Codegram"],
-      repo: "https://github.com/CodiTramuntana/decidim-diputacio-girona"
+      repo: "https://github.com/diputaciodegirona/decidim-diputacio-girona"
     },
     "fapac" => %{
       name: "Decidim FaPaC",
