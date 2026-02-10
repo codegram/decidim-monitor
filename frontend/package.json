@@ -44,7 +44,7 @@
     "ngrx-store-freeze": "^0.2.4",
     "rxjs": "^6.2.2",
     "rxjs-compat": "^6.2.2",
-    "semver": "^5.5.0",
+    "semver": "^5.7.2",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
